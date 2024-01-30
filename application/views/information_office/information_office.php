@@ -19,7 +19,8 @@
             <div class="cc">
               <form id="form_municipal" method="post" class="form-cm sty-form mb-mrg" onsubmit="return false;">
                 <div class="ctn-inp ctn-search">
-                  <h2 class="title fp_med hidden-xs">พิมพ์คำค้นหาหน่วยงาน</h2>
+                  <h1 class="title fp_med hidden-xs">พิมพ์คำค้นหาหน่วยงาน</h1>
+                  <h2 style="color:red">(ต้องมีฐานข้อมูล และทำ script ขึ้นมา นะตอนนี้กดปุ่มค้นหาไปได้เลย)</h2>
                   <h2 class="title fp_med visible-xs">
                     พิมพ์คำค้นหาหน่วยงานที่ต้องการ
                   </h2>
@@ -36,6 +37,7 @@
                 </div>
                 <div class="ctn-inp ctn-area">
                   <h2 class="title fp_med">หรือเลือกจากพื้นที่</h2>
+                  <h2 style="color:red">(ต้องมีฐานข้อมูล และทำ script ขึ้นมา นะตอนนี้กดปุ่มค้นหาไปได้เลย)</h2>
                   <div class="wrap-inp clearfix">
                     <div class="box-inp sty-sl col-6-all col-sl-search">
                       <div class="box-select fh_reg">

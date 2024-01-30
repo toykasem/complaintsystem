@@ -1,24 +1,5 @@
-<!-- <!DOCTYPE html>
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-
-<head>
-<meta charset="UTF-8" />
-    <base />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>หน้าแรก | ระบบ</title>
-    <meta name="title" content="หน้าแรก ระบบ" />
-    <meta name="description" content="ระบบ สำนักงาน" />
-    <meta name="keywords" content="ระบบ" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" />
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;800&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="</?php echo base_url(); ?>assets/style_info.css" />
-
-</head>
-
-<body> -->
     <div class="page-wrapper">
-        <section id="content" class="login">
+        <section id="content" class="login" style="padding-top: 0px;">
             <div class="landing_page">
                 <div class="content">
                     <div class="head">
