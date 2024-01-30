@@ -6119,7 +6119,7 @@ $(document).ready(function () {
 	});
 	if ($(".wrap-otp, .wrap-register").length <= 0) {
 		delete_cookie("tempOtpTime");
-		setCookieSv("Exceedstatus", "");
+		// setCookieSv("Exceedstatus", "");
 	}
 	var e = sessionStorage.getItem("prev_url"),
 		t = location.pathname;
@@ -6147,7 +6147,7 @@ function initCookieBox() {
 		}
 		$(".ck-btn.ck-agree").unbind("click");
 		$(".ck-btn.ck-agree").click(function () {
-			setCookieSv("cook_policy", "1");
+			// setCookieSv("cook_policy", "1");
 			cookieClick();
 		});
 		$(".ck-btn.ck-not-agree").unbind("click");
@@ -6156,19 +6156,19 @@ function initCookieBox() {
 		});
 	}
 }
-function setCookieSv(e, t) {
-	var n = { cmd: "set_cookie", key: e, data: t };
-	$.ajax({
-		url: BASE_URL + "cmd/cookie_cmd.php",
-		data: n,
-		type: "POST",
-		dataType: "json",
-		cache: !1,
-		beforeSend: function () {},
-		success: function (e) {},
-		error: function (e) {},
-	});
-}
+// function setCookieSv(e, t) {
+// 	var n = { cmd: "set_cookie", key: e, data: t };
+// 	$.ajax({
+// 		url: BASE_URL + "cmd/cookie_cmd.php",
+// 		data: n,
+// 		type: "POST",
+// 		dataType: "json",
+// 		cache: !1,
+// 		beforeSend: function () {},
+// 		success: function (e) {},
+// 		error: function (e) {},
+// 	});
+// }
 function cookieClick() {
 	var e = $(window).width();
 	if (e <= 1023) {
