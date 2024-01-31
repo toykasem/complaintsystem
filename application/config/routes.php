@@ -58,3 +58,5 @@ $route['informationoffice'] = 'Home/informationoffice';
 $route['onestopservice'] = 'Home/onestopservice';
 $route['homeview'] = 'Home/homeview';
 $route['complaint'] = 'Home/complaint';
+$route['indextestmodel'] = 'Controllerdata/indextestmodel';
+
