@@ -55,15 +55,10 @@ class Controllerdata extends CI_Controller
         
     }
     // ดึงข้อมูลที่เราจะทำการแก้ไข
-    public function update_data($ID_A)
+    public function update_data()
     {
-        $user_id = $ID_A;
-        $data['Date_server']  = $this->model->Date_server();
+        $user_id = $this->input->post('id');
         $data["user_data"] = $this->model->select_tableupdate($user_id);
-        $data['table_test'] = $this->model->select_table();
-		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
-		$data['menu'] = true;
-		$data['ShowPage'] = 'hometabledata/tablesindex';
-		$this->load->view('homeindex', $data);
+	    $this->load->view('hometabledata/editdata', $data);
     }
 }

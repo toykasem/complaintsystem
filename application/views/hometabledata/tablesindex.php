@@ -5,51 +5,26 @@ background: radial-gradient(circle, rgba(140,140,254,0.16600143475358897) 0%, rg
             <br /><br /><br />
             <h3 align="center">Insert Update Delete ข้อมูล</h3><br />
             <?php
-// Retrieve flashdata and display alert
-$error_message = $this->session->flashdata('error_message');
-if ($error_message) {
-    echo "<script>alert('$error_message')</script>";
-}
-?>
-            <form method="post" action="<?php echo base_url() ?>Controllerdata/form_validation" >
-                <?php
-                if (isset($user_data)) {
-                    foreach ($user_data as $row) {
-                ?>
-                        <div class="form-group">
-                            <label>Enter First Name</label>
-                            <input type="text" name="first_name" value="<?php echo $row->frist_name; ?>" class="form-control" />
-                            <span class="text-danger"><?php echo form_error("first_name"); ?></span>
-                        </div>
-                        <div class="form-group">
-                            <label>Enter Last Name</label>
-                            <input type="text" name="last_name" value="<?php echo $row->last_name; ?>" class="form-control" />
-                            <span class="text-danger"><?php echo form_error("last_name"); ?></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="hidden" name="hidden_id" value="<?php echo $row->id; ?>" />
-                            <input type="submit" name="update" value="Update" class="btn btn-info" />
-                        </div>
-                    <?php
-                    }
-                } else {
-                    ?>
-                    <div class="form-group">
-                        <label>Enter First Name</label>
-                        <input type="text" name="first_name" class="form-control" />
-                        <span class="text-danger"><?php echo form_error("first_name"); ?></span>
-                    </div>
-                    <div class="form-group">
-                        <label>Enter Last Name</label>
-                        <input type="text" name="last_name" class="form-control" />
-                        <span class="text-danger"><?php echo form_error("last_name"); ?></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="insert" value="Insert" class="btn btn-info" />
-                    </div>
-                <?php
-                }
-                ?>
+            // Retrieve flashdata and display alert
+            $error_message = $this->session->flashdata('error_message');
+            if ($error_message) {
+                echo "<script>alert('$error_message')</script>";
+            }
+            ?>
+            <form method="post" action="<?php echo base_url() ?>Controllerdata/form_validation">
+                <div class="form-group">
+                    <label>Enter First Name</label>
+                    <input type="text" name="first_name" class="form-control" />
+                    <span class="text-danger"><?php echo form_error("first_name"); ?></span>
+                </div>
+                <div class="form-group">
+                    <label>Enter Last Name</label>
+                    <input type="text" name="last_name" class="form-control" />
+                    <span class="text-danger"><?php echo form_error("last_name"); ?></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="insert" value="Insert" class="btn btn-info" />
+                </div>
             </form>
             <br /><br />
             <h3>ข้อมูล</h3><br />
@@ -73,16 +48,36 @@ if ($error_message) {
                                 <td><?php echo $row->last_name ?></td>
                                 <td><?php echo $row->savedate ?></td>
                                 <td><a href="#" class="delete_data" id="<?php echo $row->id ?>">Delete</a></td>
-                                <td><a href="<?php echo base_url(); ?>Controllerdata/update_data/<?php echo $row->id ?>">Edit</a></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" onclick="edit(id = '<?php echo $row->id ?>')">Edit</button>
+
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
             </div>
-
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div id="newsdetail">
+                    </div>
+                </div>
+            </div>
         </div>
 </section>
 <script type='text/javascript'>
+    function edit(id) {
+        var datas = "id=" + id;
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('Controllerdata/update_data') ?>",
+            data: datas,
+        }).done(function(data) {
+            $('#newsdetail').html(data);
+        });
+    }
+
+
     function loadcss(url, last) {
         var head = document.getElementsByTagName('head')[0],
             link = document.createElement('link');
@@ -111,6 +106,4 @@ if ($error_message) {
             }
         });
     });
-
 </script>
-</div>
