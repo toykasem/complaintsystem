@@ -31,6 +31,6 @@ class Homemodel extends CI_Model
 	public function delete_table($idtest)
 	{
 		$query = " DELETE  FROM tabletest  WHERE id = '$idtest'";
-		return $this->db->query($query);
+		return $this->db->query($query);   
 	}
 }
