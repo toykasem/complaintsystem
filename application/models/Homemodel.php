@@ -33,4 +33,25 @@ class Homemodel extends CI_Model
 		$query = " DELETE  FROM tabletest  WHERE id = '$idtest'";
 		return $this->db->query($query);   
 	}
+
+	public function province()
+	{
+		$query = "SELECT * FROM thai_provinces";
+		return $this->db->query($query)->result();
+	}
+	public function district($dis)
+	{
+		$query = "SELECT * FROM thai_amphures WHERE province_id = '$dis' ";
+		return $this->db->query($query)->result();
+	}
+	public function subdistrict($subdis)
+	{
+		$query = "SELECT * FROM thai_tambons WHERE amphure_id = '$subdis' ";
+		return $this->db->query($query)->result();
+	}
+	public function subdistrictpost($subdis)
+	{
+		$query = "SELECT * FROM thai_tambons WHERE id = '$subdis' ";
+		return $this->db->query($query)->result();
+	}
 }

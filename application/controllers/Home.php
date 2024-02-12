@@ -10,6 +10,7 @@ class Home extends CI_Controller
 		$this->load->helper(array('url', 'html', 'form'));
 		$this->load->library("pagination");
 		$this->load->helper('cookie');
+		$this->load->model('Homemodel', 'model');
 	}
 	public function index()
 	{
@@ -54,8 +55,56 @@ class Home extends CI_Controller
 		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
 		$data['menu'] = true;
 		$data['ShowPage'] = 'complaint/complaint';
+		$data['province'] = $this->model->province();
 		// $this->load->view('homeview/home');
 		$this->load->view('homeindex', $data);
 	}
+
+	public function getdistrict()
+	{
+		$district = trim($this->input->get('dis'));
+		$this->session->set_userdata("district", $district);
+		$res = $this->model->district($district);
+		$result = array();
+		foreach ($res as $r) {
+			$result[] = array(
+				'name_th' => 	$r->name_th,
+				'id' => 	$r->id,
+				'province_id' => 	$r->province_id
+			);
+		}
+		echo json_encode($result);
+	}
+	public function getsubdistrict()
+	{
+		$subdistrict = trim($this->input->get('subdis'));
+		$this->session->set_userdata("subdistrict", $subdistrict);
+		$res = $this->model->subdistrict($subdistrict);
+		$result = array();
+		foreach ($res as $r) {
+			$result[] = array(
+				'name_th' => 	$r->name_th,
+				'id' => 	$r->id,
+				'district_id' => 	$r->district_id,
+				'zipcode' => 	$r->zipcode
+			);
+		}
+		echo json_encode($result);
+	}
+	public function getpostcode()
+	{
+		$postcode = trim($this->input->get('postcode'));
+		$this->session->set_userdata("postcode", $postcode);
+		$res = $this->model->subdistrictpost($postcode);
+		$result = array();
+		foreach ($res as $r) {
+			$result[] = array(
+				'zipcode' => $r->zipcode
+
+			);
+		}
+		echo json_encode($result);
+	}
+
 
 }
