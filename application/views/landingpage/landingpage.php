@@ -21,8 +21,10 @@
                                     </div>
                                 </div>
                                 <div class="bc-r">
-                                    <a class="sty-btn btn-blue" href="<?php echo site_url('informationoffice') ?>">
-                                        <div class="fh_med">เลือกหน่วยงานที่นี่</div>
+                                    <!-- <a class="sty-btn btn-blue" href="<ฝ?php echo site_url('informationoffice') ?>"> -->
+                                    <a class="sty-btn btn-blue" href="<?php echo site_url('homeview') ?>">
+                                   
+                                        <div class="fh_med">เข้าหน้าระบบเพื่อร้องเรียน</div>
                                     </a>
                                 </div>
                             </div>

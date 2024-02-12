@@ -588,8 +588,8 @@
         var callbackFunc = function() {
             document.getElementsByTagName('body')[0].style.opacity = '1';
         };
-        loadcss('https://localgovtest.egov.go.th/css/1075fe2d8646675c3caa37504fee9c51.css', 'last');
-        loadcss('https://localgovtest.egov.go.th/css/e66d00c2e2d0bb36a9d42e32bf14dc07.css', 'first');
+        loadcss('<?php echo base_url(); ?>assets/friststylestep.css','last');	
+        loadcss('<?php echo base_url(); ?>assets/laststylestep.css','first');
     </script>
     <script type="text/javascript">
         function getScript(source, callback) {

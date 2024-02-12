@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Controllerdata extends CI_Controller
+class Admin extends CI_Controller
 {
     public function __construct()
     {
@@ -10,7 +10,7 @@ class Controllerdata extends CI_Controller
         $this->load->helper(array('url', 'html', 'form'));
         $this->load->library("pagination");
         $this->load->helper('cookie');
-        $this->load->model('Homemodel', 'model'); //โหลด model มาใช้งาน   file Homemodel แล้วตั้งชื่อ ใหม่ ว่า model
+        $this->load->model('Adminmodel', 'model'); //โหลด model มาใช้งาน   file Homemodel แล้วตั้งชื่อ ใหม่ ว่า model
     }
 
     public function indextestmodel ()

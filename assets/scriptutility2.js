@@ -7280,7 +7280,23 @@ var arrIdxFile = [],
 	chk_sendSubmit = !1,
 	changeLocation = !1;
 let map;
-var modal_other;
+var modal_other,
+	widget6,
+	captchaGuest = function (e) {
+		submitFormComplaint();
+	},
+	CaptchaCallback = function () {
+		if (
+			document.getElementById("RecaptchaField6") != null &&
+			document.getElementById("RecaptchaField6") != ""
+		) {
+			widget6 = grecaptcha.render("RecaptchaField6", {
+				sitekey: GG_CAPTCHA_KEY,
+				callback: captchaGuest,
+				hl: "th",
+			});
+		}
+	};
 Dropzone.autoDiscover = !1;
 $(document).ready(function () {
 	initBtnComplaint();
@@ -7860,7 +7876,7 @@ function modalOther(e, a) {
 					if (e == "confirm") {
 						if (!chk_sendSubmit) {
 							chk_sendSubmit = !0;
-							submitFormComplaint();
+							grecaptcha.execute(widget6);
 						}
 					} else if (e == "draft") {
 						if (
@@ -7887,15 +7903,12 @@ function modalOther(e, a) {
 function submitFormComplaint(e) {
 	removeSymbol();
 	$("#form .btn-submit").addClass("loading");
-	var l = $("#form_complaint").serialize(),
-		r = BASE_URL + "cmd/complaint_cmd.php",
-		n = "",
-		t = e != undefined && e != "" && e != null ? e : "";
-	if (typeof grecaptcha != "undefined") {
-		n = grecaptcha.getResponse(widget);
-	}
-	var o = JSON.stringify(objFile),
-		i = l + "&cmd=form&files=" + o + "&mode=" + MODE_USE + "&capcha=" + n;
+	var n = $("#form_complaint").serialize(),
+		o = BASE_URL + "cmd/complaint_cmd.php",
+		l = "",
+		t = e != undefined && e != "" && e != null ? e : "",
+		r = JSON.stringify(objFile),
+		i = n + "&cmd=form&files=" + r + "&mode=" + MODE_USE + "&capcha=" + l;
 	if (MODE_USE == "user") {
 		t = t != undefined && t != "" && t != null ? t : "active";
 		i += "&municipals_id=" + MUNICIPALITY_ID + "&obj_status=" + t;
@@ -7906,7 +7919,7 @@ function submitFormComplaint(e) {
 	}
 	a.addClass("loading");
 	$.ajax({
-		url: r,
+		url: o,
 		data: i,
 		type: "POST",
 		dataType: "json",
@@ -7937,9 +7950,7 @@ function submitFormComplaint(e) {
 				}
 			} else {
 				modalOther("error");
-			}
-			if (typeof grecaptcha != "undefined") {
-				grecaptcha.reset(widget);
+				grecaptcha.reset(widget6);
 			}
 			chk_sendSubmit = !1;
 			a.removeClass("loading");
@@ -7952,12 +7963,10 @@ function submitFormComplaint(e) {
 			) {
 				modal_other.closeDim();
 			}
-			if (typeof grecaptcha != "undefined") {
-				grecaptcha.reset(widget);
-			}
 			chk_sendSubmit = !1;
 			modalOther("error");
 			a.removeClass("loading");
+			grecaptcha.reset(widget6);
 		},
 	});
 }
