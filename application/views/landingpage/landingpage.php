@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="bc-r">
-                                    <a class="sty-btn btn-blue" href="<?php echo site_url('login') ?>">
+                                    <a class="sty-btn btn-blue" href="<?php echo site_url('loginbackend') ?>">
                                         <div class="fh_med">เข้าสู่ระบบ</div>
                                     </a>
                                 </div>

@@ -5,15 +5,15 @@ background: radial-gradient(circle, rgba(140,140,254,0.16600143475358897) 0%, rg
             <h1 class="tt-page fp_med">ศูนย์บริการจุดเดียวเบ็ดเสร็จ</h1>
             <div class="detail has-3">
                 <div class="block-services fp_reg">
-                    <div class="block-service"><a class="link-service" href="<?php echo site_url('complaint') ?>">
+                    <div class="block-service"><a class="link-service" href="<?php echo site_url('complaint') ?>" style="background-color: #AFACC0 ;">
                             <div class="box-ic"><span class="ic icon-libreoffice"></span></div>
                             <h2 class="text">แจ้งคำร้อง<br />/ร้องเรียน</h2>
                         </a></div>
-                    <div class="block-service"><a class="link-service" href="#">
+                    <div class="block-service"><a class="link-service" href="<?php echo site_url('checkclaim') ?>" style="background-color: #AFACC0 ;">
                             <div class="box-ic"><span class="ic icon-clipboard"></span></div>
                             <h2 class="text">ตรวจสอบ<br />ผลดำเนินการ</h2>
                         </a></div>
-                    <div class="block-service"><a class="link-service" href="#">
+                    <div class="block-service"><a class="link-service" href="#" style="background-color: #AFACC0 ;">
                             <div class="box-ic"><span class="ic icon-clipboard"></span></div>
                             <h2 class="text">ประเมินความพึงพอใจ<br />ในการบริการ</h2>
                         </a></div>

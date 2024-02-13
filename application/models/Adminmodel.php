@@ -33,4 +33,14 @@ class Adminmodel extends CI_Model
 		$query = " DELETE  FROM tabletest  WHERE id = '$idtest'";
 		return $this->db->query($query);   
 	}
+	public function fetch_user_login($username, $password)
+	{
+        $query = "SELECT * FROM user  where username = '$username' and  password = '$password' ";
+		return $this->db->query($query)->result();
+	}
+	public function record_count($username, $password)
+	{
+		$query = "SELECT * FROM user  where username = '$username' and  password = '$password' ";
+		return $this->db->query($query)->result();
+	}
 }

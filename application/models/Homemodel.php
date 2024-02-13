@@ -49,9 +49,27 @@ class Homemodel extends CI_Model
 		$query = "SELECT * FROM thai_tambons WHERE amphure_id = '$subdis' ";
 		return $this->db->query($query)->result();
 	}
+	public function subdistrictall()
+	{
+		$query = "SELECT * FROM thai_tambons ";
+		return $this->db->query($query)->result();
+	}
 	public function subdistrictpost($subdis)
 	{
 		$query = "SELECT * FROM thai_tambons WHERE id = '$subdis' ";
 		return $this->db->query($query)->result();
 	}
+	// public function titlename()
+	// {
+	// 	$query = "SELECT * FROM titles";
+	// 	return $this->db->query($query)->result();
+	// }
+	// public function selectoption()
+	// {
+	// 	$query = "SELECT topic.id as topic_id,topic.topic_name,su.main_topic_id as subtopic_id,su.id as su_id ,su.subtopic_name
+	// 	FROM select_option_topics as topic
+	// 	INNER JOIN select_option_subtopics as su ON topic.id = su.main_topic_id
+	// 	ORDER BY topic.id, su.id";
+	// 	return $this->db->query($query)->result();
+	// }
 }

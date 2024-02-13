@@ -56,6 +56,33 @@ class Home extends CI_Controller
 		$data['menu'] = true;
 		$data['ShowPage'] = 'complaint/complaint';
 		$data['province'] = $this->model->province();
+		$data['districtall']  = $this->model->subdistrictall();
+		// $data['titlename'] = $this->model->titlename();
+		// $data['selectoption'] = $this->model->selectoption();
+		
+		// $this->load->view('homeview/home');
+		$this->load->view('homeindex', $data);
+	}
+	
+	public function checkclaim ()
+	{
+
+		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
+		$data['menu'] = true;
+		$data['ShowPage'] = 'complaint/checkclaim';
+		$this->load->view('homeindex', $data);
+	}
+	public function complaintv2 ()
+	{
+
+		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
+		$data['menu'] = true;
+		$data['ShowPage'] = 'complaint/testbar';
+		$data['province'] = $this->model->province();
+		$data['districtall']  = $this->model->subdistrictall();
+		// $data['titlename'] = $this->model->titlename();
+		// $data['selectoption'] = $this->model->selectoption();
+		
 		// $this->load->view('homeview/home');
 		$this->load->view('homeindex', $data);
 	}
@@ -68,12 +95,12 @@ class Home extends CI_Controller
 		$result = array();
 		foreach ($res as $r) {
 			$result[] = array(
-				'name_th' => 	$r->name_th,
-				'id' => 	$r->id,
-				'province_id' => 	$r->province_id
+				'name_th' => $r->name_th,
+				'id' => $r->id,
+				'province_id' => $r->province_id
 			);
 		}
-		echo json_encode($result);
+		echo json_encode($result, JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE);
 	}
 	public function getsubdistrict()
 	{
@@ -85,8 +112,8 @@ class Home extends CI_Controller
 			$result[] = array(
 				'name_th' => 	$r->name_th,
 				'id' => 	$r->id,
-				'district_id' => 	$r->district_id,
-				'zipcode' => 	$r->zipcode
+				'amphure_id' => 	$r->amphure_id,
+				'zip_code' => 	$r->zip_code
 			);
 		}
 		echo json_encode($result);
@@ -99,7 +126,7 @@ class Home extends CI_Controller
 		$result = array();
 		foreach ($res as $r) {
 			$result[] = array(
-				'zipcode' => $r->zipcode
+				'zip_code' => $r->zip_code
 
 			);
 		}
