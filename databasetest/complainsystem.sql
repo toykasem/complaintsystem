@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2024 at 12:05 PM
+-- Generation Time: Feb 13, 2024 at 01:28 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,75 @@ SET time_zone = "+00:00";
 --
 -- Database: `complainsystem`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `main_topics`
+--
+
+CREATE TABLE `main_topics` (
+  `id` int(11) NOT NULL,
+  `topic_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `main_topics`
+--
+
+INSERT INTO `main_topics` (`id`, `topic_name`) VALUES
+(1, 'ร้องเรียน/ร้องทุกข์ หน่วยงานภาครัฐ'),
+(2, 'ภาษีและค่าธรรมเนียม'),
+(3, 'ขอความช่วยเหลือ'),
+(4, 'ทรัพยากรธรรมชาติและสิ่งแวดล้อม'),
+(5, 'อื่นๆ'),
+(6, 'สาธารณสุข'),
+(7, 'สังคมและสวัสดิการ'),
+(8, 'ระบบสาธารณูปโภค');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subtopics`
+--
+
+CREATE TABLE `subtopics` (
+  `id` int(11) NOT NULL,
+  `main_topic_id` int(11) DEFAULT NULL,
+  `subtopic_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subtopics`
+--
+
+INSERT INTO `subtopics` (`id`, `main_topic_id`, `subtopic_name`) VALUES
+(1, 1, 'เหตุด่วน เดือดร้อน'),
+(2, 1, 'คำร้องทั่วไป'),
+(3, 2, 'ขอคัดสำเนาทะเบียนทรัพย์สิน'),
+(4, 3, 'บริการข้อมูล/ข่าวสาร'),
+(5, 4, 'ตัดต้นไม้'),
+(6, 4, 'น้ำเสีย'),
+(7, 4, 'กลิ่นควัน/เสียงรบกวน'),
+(8, 4, 'ขุดดิน/ถมดิน'),
+(9, 4, 'จัดเก็บกิ่งไม้ใบไม้'),
+(10, 5, 'แจ้งเรื่องอื่น ๆ'),
+(11, 6, 'การควบคุมกำจัดแมลง และพาหะนำโรค'),
+(12, 6, 'สัตว์เลี้ยงไร้เจ้าของ'),
+(13, 7, 'ยืมวัสดุอุปกรณ์'),
+(14, 7, 'สนับสนุนน้ำอุปโภคบริโภค'),
+(15, 7, 'หอกระจายข่าว / เสียงตามสาย'),
+(16, 8, 'ไฟฟ้าสาธารณะ'),
+(17, 8, 'ท่อระบายน้ำ'),
+(18, 8, 'ดูดสิ่งปฏิกูล'),
+(19, 8, 'ขอถังขยะ/แจ้งเก็บขยะ'),
+(20, 8, 'อาคาร'),
+(21, 8, 'ถนน/ไหล่ทาง'),
+(22, 8, 'ท่อระบายน้ำ'),
+(23, 8, 'ประปาหมู่บ้าน'),
+(24, 8, 'แจ้งซ่อมป้ายซอย'),
+(25, 8, 'ขุดลอก'),
+(26, 8, 'ดูดโคลน/ดูดสิ่งปฏิกูล');
 
 -- --------------------------------------------------------
 
@@ -8607,9 +8676,65 @@ INSERT INTO `thai_tambons` (`id`, `zip_code`, `name_th`, `name_en`, `amphure_id`
 (961302, 96130, 'บูกิต', 'Bukit', 9613, '2019-08-09 03:33:09', '2022-05-16 06:31:31', NULL),
 (961303, 96130, 'มะรือโบออก', 'Maruebo Ok', 9613, '2019-08-09 03:33:09', '2022-05-16 06:31:31', NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `titles`
+--
+
+CREATE TABLE `titles` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `titles`
+--
+
+INSERT INTO `titles` (`id`, `name`) VALUES
+(1, 'นาย'),
+(2, 'นาง'),
+(3, 'นางสาว');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(10) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `Permission` int(10) NOT NULL,
+  `status` int(10) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `phone`, `Permission`, `status`, `date`) VALUES
+(1, 'admin', 'admin1234', '0988888888', 5, 1, '2024-02-13');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `main_topics`
+--
+ALTER TABLE `main_topics`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subtopics`
+--
+ALTER TABLE `subtopics`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `main_topic_id` (`main_topic_id`);
 
 --
 -- Indexes for table `tabletest`
@@ -8642,14 +8767,60 @@ ALTER TABLE `thai_tambons`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `titles`
+--
+ALTER TABLE `titles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `main_topics`
+--
+ALTER TABLE `main_topics`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `subtopics`
+--
+ALTER TABLE `subtopics`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tabletest`
 --
 ALTER TABLE `tabletest`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `titles`
+--
+ALTER TABLE `titles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `subtopics`
+--
+ALTER TABLE `subtopics`
+  ADD CONSTRAINT `subtopics_ibfk_1` FOREIGN KEY (`main_topic_id`) REFERENCES `main_topics` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

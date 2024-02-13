@@ -19,14 +19,14 @@ class Home extends CI_Controller
 	public function landingpage()
 	{
 		$data['title'] = 'ระบบ | ระบบทดสอบ';
-	
+
 		$data['ShowPage'] = 'landingpage/landingpage';
 		// $this->load->view('landingpage/landingpage');
-		
+
 		$this->load->view('homeindex', $data);
 	}
-	
-	public function informationoffice ()
+
+	public function informationoffice()
 	{
 		$data['title'] = 'ค้นหา | ระบบทดสอบ';
 		$data['ShowPage'] = 'information_office/information_office';
@@ -34,7 +34,7 @@ class Home extends CI_Controller
 		$this->load->view('homeindex', $data);
 	}
 
-	public function onestopservice ()
+	public function onestopservice()
 	{
 		$data['title'] = 'รายงาน | ระบบทดสอบ';
 		$data['menu'] = true;
@@ -42,7 +42,7 @@ class Home extends CI_Controller
 		// $this->load->view('one_stop_service/onestopservice');
 		$this->load->view('homeindex', $data);
 	}
-	public function homeview ()
+	public function homeview()
 	{
 		$data['title'] = 'หน้าแรก | ระบบทดสอบ';
 		$data['menu'] = true;
@@ -50,21 +50,20 @@ class Home extends CI_Controller
 		// $this->load->view('homeview/home');
 		$this->load->view('homeindex', $data);
 	}
-	public function complaint ()
+	public function complaint()
 	{
 		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
 		$data['menu'] = true;
 		$data['ShowPage'] = 'complaint/complaint';
 		$data['province'] = $this->model->province();
 		$data['districtall']  = $this->model->subdistrictall();
-		// $data['titlename'] = $this->model->titlename();
-		// $data['selectoption'] = $this->model->selectoption();
-		
-		// $this->load->view('homeview/home');
+		$data['titlename'] = $this->model->titlename();
+		$data['selectoption'] = $this->model->selectoption();
+
 		$this->load->view('homeindex', $data);
 	}
-	
-	public function checkclaim ()
+
+	public function checkclaim()
 	{
 
 		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
@@ -72,7 +71,7 @@ class Home extends CI_Controller
 		$data['ShowPage'] = 'complaint/checkclaim';
 		$this->load->view('homeindex', $data);
 	}
-	public function complaintv2 ()
+	public function complaintv2()
 	{
 
 		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
@@ -82,7 +81,7 @@ class Home extends CI_Controller
 		$data['districtall']  = $this->model->subdistrictall();
 		// $data['titlename'] = $this->model->titlename();
 		// $data['selectoption'] = $this->model->selectoption();
-		
+
 		// $this->load->view('homeview/home');
 		$this->load->view('homeindex', $data);
 	}
@@ -134,4 +133,64 @@ class Home extends CI_Controller
 	}
 
 
+	public function insert_petition()
+	{
+		// รับข้อมูลที่ถูกส่งมาจาก AJAX
+		$petition_type = $this->input->post('petition_type');
+		$topic = $this->input->post('topic');
+		$detail = $this->input->post('detail');
+		$titlename = $this->input->post('titlename');
+		$fristname = $this->input->post('fristname');
+		$lasttname = $this->input->post('lasttname');
+		$idcard = $this->input->post('idcard');
+		$phonenumber = $this->input->post('phonenumber');
+		$email = $this->input->post('email');
+		$homenumber = $this->input->post('homenumber');
+		$alley = $this->input->post('alley');
+		$moo = $this->input->post('moo');
+		$road = $this->input->post('road');
+		$province = $this->input->post('province');
+		$district = $this->input->post('district');
+		$sub_district = $this->input->post('sub_district');
+		$postcode = $this->input->post('postcode');
+
+		$insert = $this->model->insertpetition(
+			$petition_type,
+			$topic,
+			$detail,
+			$titlename,
+			$fristname,
+			$lasttname,
+			$idcard,
+			$phonenumber,
+			$email,
+			$homenumber,
+			$alley,
+			$moo,
+			$road,
+			$province,
+			$district,
+			$sub_district,
+			$postcode
+		);
+
+		if ($insert) {
+			$data = array('success' => true, 'msg1' => 'Form has been submitted successfully2');
+		} else {
+			$data = array('success' => false, 'msg' => 'Form has been not submitted');
+		}
+		echo json_encode($data);
+	}
+
+	public function searchcliam()
+	{
+		$idnumber = $this->input->post('idnumber');
+		$phonenumber = $this->input->post('phonenumber');
+		$data['province'] = $this->model->search($idnumber,$phonenumber);
+		foreach ($data['province'] as $r) {
+			$data['status']  = $r->status;
+		}
+
+		$this->load->view('complaint/stepcheckcliam',$data);
+	}
 }

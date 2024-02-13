@@ -43,4 +43,14 @@ class Adminmodel extends CI_Model
 		$query = "SELECT * FROM user  where username = '$username' and  password = '$password' ";
 		return $this->db->query($query)->result();
 	}
+	public function selectpetition()
+	{
+		$query = "SELECT ROW_NUMBER() OVER(ORDER BY p.petition_id ) as row 
+		,p.*,Pv.name_th as province ,D.name_th as district,SUP.name_th as supdistrict,SUP.zip_code
+		FROM petition as p 
+		INNER JOIN thai_provinces AS Pv ON p.province = Pv.id 
+		INNER JOIN thai_amphures AS D ON p.province = D.province_id AND p.district = D.id 
+		INNER JOIN thai_tambons AS SUP ON p.province = D.province_id AND p.district = SUP.amphure_id AND p.sub_district = SUP.id ";
+		return $this->db->query($query)->result();
+	}
 }

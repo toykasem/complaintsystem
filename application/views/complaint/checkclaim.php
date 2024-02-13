@@ -2,7 +2,6 @@
     <br /> <br />
     <h1 style="text-align:center">ติดตามผลการดำเนินการ</h1>
     <div style="margin-top: 50px;">
-        <form class="form-horizontal card" id="sample-form">
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-3">
@@ -17,15 +16,30 @@
             </div>
             <br />
             <div class="row" style="text-align: center;">
-                <button class="btn btn-primary btn-next" style="text-align: center;" data-last="Finish">
+                <button class="btn btn-primary btn-next" style="text-align: center;" data-last="Finish" onclick="searchclaim()">
                     <i class="ace-icon fa fa-search"></i> ค้นหา
                 </button>
             </div>
             <br />
-        </form>
+            <div id="stepshowe"></div>
     </div>
 </section>
 <script type="text/javascript">
+    function searchclaim(id) {
+        var idnumber = document.getElementById('idnumber').value;
+        var phonenumber = document.getElementById('phonenumber').value;
+        var datas = "idnumber=" + idnumber + "&phonenumber=" + phonenumber;
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('Home/searchcliam') ?>",
+            data: datas,
+        }).done(function(data) {
+            $('#stepshowe').html(data);
+        });
+    }
+
+
+
     function loadcss(url, last) {
         var head = document.getElementsByTagName('head')[0],
             link = document.createElement('link');

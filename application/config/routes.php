@@ -63,3 +63,7 @@ $route['checkclaim'] = 'Home/checkclaim';
 $route['indextestmodel'] = 'Controllerdata/indextestmodel';
 $route['loginbackend'] = 'Login';
 
+
+//backend
+$route['datacompaim'] = 'Admin/datacompain';
+

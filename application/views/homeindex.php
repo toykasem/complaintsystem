@@ -27,7 +27,6 @@
         <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
         <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        .js"></script>
 
     </head>
 

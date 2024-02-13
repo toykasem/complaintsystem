@@ -28,17 +28,22 @@ class Login extends CI_Controller
 				$result = $this->Adminmodel->fetch_user_login($username, $password);
 				foreach ($result as $value) {
 					$id = $value->id;
-					$user_name = $value->user_name;
-					$fristname = $value->fristname;
-					$lastname = $value->lastname;
-					$type_user = $value->type_user;
+					$username = $value->username;
+					$password = $value->password;
+					$phone = $value->phone;
+					$Permission = $value->Permission;
 				}
-				$this->session->set_userdata(array('login_id' => $id, 'username' => $user_name, 'fristname' => $fristname, 'lastname' => $lastname, 'type_user' => $type_user));
+				$this->session->set_userdata(array('login_id' => $id, 'username' => $username, 'phone' => $phone, 'Permission' => $Permission));
 				redirect('Admin');
 			} else {
 				$this->session->set_flashdata(array('msgerr' => '<p class="login-box-msg" style="color:red;">ชื่อผู้ใช้หรือรหัสผ่านผิดพลาด!</p>'));
 				redirect('Login', 'refresh');
 			}
 		}
+	}
+	public function Logout()
+	{
+		$this->session->sess_destroy();
+		redirect('Admin');
 	}
 }
