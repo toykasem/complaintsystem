@@ -32,9 +32,9 @@
 
     <body>
         <div class="page-wrapper">
-            <?php isset($menu) ? $this->load->view('menu') : ''  ?>
+            <?php isset($menu) ? $this->load->view('front/menu') : ''  ?>
             <?php $this->load->view($ShowPage) ?>
-            <?php isset($menu) ? $this->load->view('footer') : ''  ?>
+            <?php isset($menu) ? $this->load->view('front/footer') : ''  ?>
         </div>
     </body>
 

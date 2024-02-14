@@ -19,8 +19,8 @@ class Controllerdata extends CI_Controller
         $data['table_test'] = $this->model->select_table();
 		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
 		$data['menu'] = true;
-		$data['ShowPage'] = 'hometabledata/tablesindex';
-		$this->load->view('homeindex', $data);
+		$data['ShowPage'] = 'front/hometabledata/tablesindex';
+		$this->load->view('front/homeindex', $data);
 	}
 
     public function form_validation()
@@ -57,6 +57,6 @@ class Controllerdata extends CI_Controller
     {
         $user_id = $this->input->post('id');
         $data["user_data"] = $this->model->select_tableupdate($user_id);
-	    $this->load->view('hometabledata/editdata', $data);
+	    $this->load->view('front/hometabledata/editdata', $data);
     }
 }

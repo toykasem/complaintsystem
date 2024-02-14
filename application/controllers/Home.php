@@ -14,53 +14,53 @@ class Home extends CI_Controller
 	}
 	public function index()
 	{
-		$this->load->view('index');
+		$this->load->view('front/index');
 	}
 	public function landingpage()
 	{
 		$data['title'] = 'ระบบ | ระบบทดสอบ';
 
-		$data['ShowPage'] = 'landingpage/landingpage';
+		$data['ShowPage'] = 'front/landingpage/landingpage';
 		// $this->load->view('landingpage/landingpage');
 
-		$this->load->view('homeindex', $data);
+		$this->load->view('front/homeindex', $data);
 	}
 
 	public function informationoffice()
 	{
 		$data['title'] = 'ค้นหา | ระบบทดสอบ';
-		$data['ShowPage'] = 'information_office/information_office';
+		$data['ShowPage'] = 'front/information_office/information_office';
 		// $this->load->view('information_office/information_office');
-		$this->load->view('homeindex', $data);
+		$this->load->view('front/homeindex', $data);
 	}
 
 	public function onestopservice()
 	{
 		$data['title'] = 'รายงาน | ระบบทดสอบ';
 		$data['menu'] = true;
-		$data['ShowPage'] = 'one_stop_service/onestopservice';
-		// $this->load->view('one_stop_service/onestopservice');
-		$this->load->view('homeindex', $data);
+		$data['ShowPage'] = 'front/onestopservice/onestopservice';
+		// $this->load->view('onestopservice/onestopservice');
+		$this->load->view('front/homeindex', $data);
 	}
 	public function homeview()
 	{
 		$data['title'] = 'หน้าแรก | ระบบทดสอบ';
 		$data['menu'] = true;
-		$data['ShowPage'] = 'homeview/home';
+		$data['ShowPage'] = 'front/homeview/home';
 		// $this->load->view('homeview/home');
-		$this->load->view('homeindex', $data);
+		$this->load->view('front/homeindex', $data);
 	}
 	public function complaint()
 	{
 		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
 		$data['menu'] = true;
-		$data['ShowPage'] = 'complaint/complaint';
+		$data['ShowPage'] = 'front/complaint/complaint';
 		$data['province'] = $this->model->province();
 		$data['districtall']  = $this->model->subdistrictall();
 		$data['titlename'] = $this->model->titlename();
 		$data['selectoption'] = $this->model->selectoption();
 
-		$this->load->view('homeindex', $data);
+		$this->load->view('front/homeindex', $data);
 	}
 
 	public function checkclaim()
@@ -68,22 +68,22 @@ class Home extends CI_Controller
 
 		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
 		$data['menu'] = true;
-		$data['ShowPage'] = 'complaint/checkclaim';
-		$this->load->view('homeindex', $data);
+		$data['ShowPage'] = 'front/complaint/checkclaim';
+		$this->load->view('front/homeindex', $data);
 	}
 	public function complaintv2()
 	{
 
 		$data['title'] = 'แจ้งคำร้อง | ระบบทดสอบ';
 		$data['menu'] = true;
-		$data['ShowPage'] = 'complaint/testbar';
+		$data['ShowPage'] = 'front/complaint/testbar';
 		$data['province'] = $this->model->province();
 		$data['districtall']  = $this->model->subdistrictall();
 		// $data['titlename'] = $this->model->titlename();
 		// $data['selectoption'] = $this->model->selectoption();
 
 		// $this->load->view('homeview/home');
-		$this->load->view('homeindex', $data);
+		$this->load->view('front/homeindex', $data);
 	}
 
 	public function getdistrict()
@@ -191,6 +191,6 @@ class Home extends CI_Controller
 			$data['status']  = $r->status;
 		}
 
-		$this->load->view('complaint/stepcheckcliam',$data);
+		$this->load->view('front/complaint/stepcheckcliam',$data);
 	}
 }
