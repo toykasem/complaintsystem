@@ -21,8 +21,7 @@ class Home extends CI_Controller
 		$data['title'] = 'ระบบ | ระบบทดสอบ';
 
 		$data['ShowPage'] = 'front/landingpage/landingpage';
-		// $this->load->view('landingpage/landingpage');
-
+		$data['landing'] = true;
 		$this->load->view('front/homeindex', $data);
 	}
 
@@ -47,6 +46,7 @@ class Home extends CI_Controller
 		$data['title'] = 'หน้าแรก | ระบบทดสอบ';
 		$data['menu'] = true;
 		$data['ShowPage'] = 'front/homeview/home';
+		$data['datadashbord']  = $this->model->datadashbord();
 		// $this->load->view('homeview/home');
 		$this->load->view('front/homeindex', $data);
 	}

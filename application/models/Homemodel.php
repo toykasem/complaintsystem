@@ -113,7 +113,7 @@ class Homemodel extends CI_Model
 		return $this->db->query($query);
 	}
 
-	public function search($idnumber,$phonenumber)
+	public function search($idnumber, $phonenumber)
 	{
 		$query = "SELECT *
 		FROM petition
@@ -121,5 +121,17 @@ class Homemodel extends CI_Model
 		return $this->db->query($query)->result();
 	}
 
-	
+	public function datadashbord()
+	{
+		$query = "SELECT 
+		SUM(CASE WHEN status = 1 THEN 1 ELSE 0 END) AS status1,
+		SUM(CASE WHEN status = 2 THEN 1 ELSE 0 END) AS status2,
+		SUM(CASE WHEN status = 3 THEN 1 ELSE 0 END) AS status3,
+		SUM(CASE WHEN status = 4 THEN 1 ELSE 0 END) AS status4
+	FROM 
+		`petition` 
+	WHERE 
+		status IN (1, 2, 3, 4);";
+		return $this->db->query($query)->result();
+	}
 }

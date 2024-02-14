@@ -1,24 +1,21 @@
-<header id="header">
-    <div class="header-inn">
-        <div class="header-logo"><a href="<?php echo site_url('homeview') ?>"><img src="assets/image/test.png" alt="image" /></a>
-            <div class="desc"><a class="tt is-block" href="<?php echo site_url('homeview') ?>">ทดสอบระบบ</a><a class="dt is-block" href="#">ทดสอบระบบ</a></div>
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <div id="logo">
+            <h1><a href="<?php echo site_url('homeview') ?>"><img src="assets/image/test.png" alt="image" style="width: 10%;" /><span>ทด</span>สอบระบบ</a></h1>
         </div>
-        <div class="header-nav-menu hidden-xs">
-            <div class="flex-menu">
-                <ul>
-                    <li><a class="fh_med active" href="<?php echo site_url('homeview') ?>">บริการของเรา</a></li>
-                    <li><a class="fh_med " href="<?php echo site_url('homeview') ?>">ข่าวประชาสัมพันธ์</a></li>
-                    <li><a class="fh_med " href="<?php echo site_url('homeview') ?>">เกี่ยวกับเรา</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="header-nav">
-            <div class="ctn-nav-lt">
-                <span class="box-public fh_med hidden-xs">
-                    <a href="#">เข้าสู่ระบบ</a><em class="pipe"></em>
-                    <a href="#">สมัครสมาชิก</a></span><span class="box-public-mb fh_med visible-xs">
-                    <a class="btn-login-mb" href="#"><em class="icon-user"></em></a></span>
-            </div>
-        </div>
+
+        <nav id="navbar" class="navbar">
+            <ul class="menu">
+                <li><a class="nav-link scrollto active" href="<?php echo site_url('homeview') ?>"><strong style="font-size:large">บริการของเรา</strong></a></li>
+                <li><a class="nav-link scrollto" href="<?php echo site_url('homeview') ?>"><strong style="font-size:large">ข่าวประชาสัมพันธ์</strong></a></li>
+                <li><a class="nav-link scrollto" href="<?php echo site_url('homeview') ?>"><strong style="font-size:large">เกี่ยวกับเรา</strong></a></li>
+                <li><a class="nav-link scrollto" href="#"><strong style="font-size:large">เข้าสู่ระบบ</strong></a></li>
+                <li style="margin-left:10px;margin-right:-50px"><strong style="font-size:large">|</strong></li>
+                <li><a class="nav-link scrollto" href="#"><strong style="font-size:large">สมัครสมาชิก</strong></a></li>
+            </ul>
+            <span class="icon-paragraph-justify mobile-nav-toggle"></span>
+        </nav>
     </div>
 </header>
+<section style="    height: calc(10vh - 40px);"></section> 

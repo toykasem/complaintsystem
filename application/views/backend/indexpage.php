@@ -14,15 +14,11 @@
 </head>
 
 <body>
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" >
 
-        <?php $this->load->view('backend/menu')  ?>
-        <div class="body-wrapper">
-        <?php $this->load->view('backend/header')  ?>
-        <div class="container-fluid">
+
             <?php $this->load->view($ShowPage) ?>
-        </div>
-        </div>
+     
     </div>
     <script src="<?php echo base_url(); ?>/assets/cssbackend/libs/jquery/dist/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/cssbackend/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
