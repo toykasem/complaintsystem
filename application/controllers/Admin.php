@@ -18,7 +18,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('username') == '') {
 			$data['username'] = "";
 			$data['password'] = "";
-			$this->load->view('backend/Login', $data);
+			$this->load->view('backend/login', $data);
 		} else {
 			$data['ShowPage'] = 'backend/mainpage/mainpage';
 			$this->load->view('backend/indexpage', $data);
@@ -29,7 +29,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('username') == '') {
 			$data['username'] = "";
 			$data['password'] = "";
-			$this->load->view('backend/Login', $data);
+			$this->load->view('backend/login', $data);
 		} else {
 			
 			$data['petition']  = $this->model->selectpetition();

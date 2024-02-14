@@ -15,7 +15,7 @@ class Login extends CI_Controller
 	}
 	public function Index()
 	{
-		$this->load->view('backend/Login');
+		$this->load->view('backend/login');
 	}
 	public function Validlogin()
 	{
@@ -37,7 +37,7 @@ class Login extends CI_Controller
 				redirect('Admin');
 			} else {
 				$this->session->set_flashdata(array('msgerr' => '<p class="login-box-msg" style="color:red;">ชื่อผู้ใช้หรือรหัสผ่านผิดพลาด!</p>'));
-				redirect('Login', 'refresh');
+				redirect('login', 'refresh');
 			}
 		}
 	}
