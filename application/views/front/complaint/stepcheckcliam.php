@@ -1,21 +1,35 @@
-<ul class="steps">
-    <li data-step="1" class="<?= $status ?> <?= $status === '1' || $status === '2' ||  $status === '3' ||  $status === '4' ? 'active' : '' ?>">
-        <span class="step">1</span>
-        <span class="title">กำลังดำเนินการ <?php echo $status ?> </span>
-    </li>
-
-    <li data-step="2" class="<?= $status ?> <?= $status === '2' ||  $status === '3' ||  $status === '4' ? 'active' : '' ?>">
-        <span class="step">2</span>
-        <span class="title">อยู่ในสถานะตรวจสอบ</span>
-    </li>
-
-    <li data-step="3"  class="<?= $status ?> <?= $status === '3' ||  $status === '4'  ? 'active' : '' ?>">
-        <span class="step">3</span>
-        <span class="title">ขั้นตอนอนุมัติ</span>
-    </li>
-
-    <li data-step="4" class="<?= $status ?> <?= $status === '4'  ? 'active' : '' ?>">
-        <span class="step">4</span>
-        <span class="title">เสร็จสิ้น</span>
-    </li>
-</ul>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card" style="<?= $status === '1' || $status === '2' ||  $status === '3' ||  $status === '4' ? 'background-color:#1bc51b;text-align:center' : '' ?>">
+        <div class="card-body">
+            <span class="title">1. กำลังดำเนินการ </span>
+            <span class="icon-arrow-right"></span>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        
+        <div class="card" style=" <?= $status === '2' ||  $status === '3' ||  $status === '4' ? 'background-color:#1bc51b;text-align:center' : '' ?>">
+        <div class="card-body">
+            <span class="title">2. อยู่ในสถานะตรวจสอบ</span>
+            <span class="icon-arrow-right"></span>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card" style=" <?= $status === '3' ||  $status === '4'  ? 'background-color:#1bc51b;text-align:center' : '' ?>">
+        <div class="card-body">
+            <span class="title">3. ขั้นตอนอนุมัติ</span>
+            <span class="icon-arrow-right"></span>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card" style=" <?= $status === '4'  ? 'background-color:#1bc51b;text-align:center' : '' ?>">
+        <div class="card-body">
+            <span class="title">4. เสร็จสิ้น</span>
+            <span class="icon-arrow-right"></span>
+        </div>
+        </div>
+    </div>
+</div>
