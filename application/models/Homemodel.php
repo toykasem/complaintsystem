@@ -92,7 +92,7 @@ class Homemodel extends CI_Model
 		$sub_district,
 		$postcode
 	) {
-		$query = "INSERT INTO petition (petition_type, topic, detail, titlename, firstname, lastname, idcard, phonenumber, email, homenumber, alley, moo, road, province, district, sub_district, postcode, filedata, savedate) 
+		$query = "INSERT INTO petition (petition_type, topic, detail, titlename, firstname, lastname, idcard, phonenumber, email, homenumber, alley, moo, road, province, district, sub_district, postcode, filedata, savedate, status) 
 		VALUES (	$petition_type,
 			'$topic',
 			'$detail',
@@ -109,7 +109,7 @@ class Homemodel extends CI_Model
 			'$province',
 			'$district',
 			'$sub_district',
-			'$postcode', 'ข้อมูลไฟล์', now());";
+			'$postcode', 'ข้อมูลไฟล์', now(), '1');";
 		return $this->db->query($query);
 	}
 
