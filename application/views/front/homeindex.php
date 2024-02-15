@@ -28,11 +28,11 @@
 </head>
 <?php if (isset($landing)) : ?>
 
-    <body style="background: rgb(17,187,241);background: linear-gradient(90deg, rgba(17,187,241,1) 0%, rgba(230,251,255,1) 100%);">
+    <body style="background: rgb(169,157,230);
+background: radial-gradient(circle, rgba(169,157,230,1) 0%, rgba(175,178,213,1) 46%, rgba(124,139,223,1) 100%);">
     <?php else : ?>
 
-        <body style="background: rgb(216,216,249);
-background: linear-gradient(90deg, rgba(216,216,249,1) 0%, rgba(158,169,184,1) 50%, rgba(255,243,227,1) 100%);">
+        <body >
         <?php endif; ?>
 
         <?php isset($menu) ? $this->load->view('front/menu') : ''  ?>

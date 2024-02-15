@@ -3,38 +3,46 @@
         <?php foreach ($datadashbord as $dashbord) { ?>
             <div class="row">
 
-                <div class="col-md-3">
-                    <div class="card shadow bg-body rounded" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="card-body" style="background-color: initial;">
+                <div class="col-md-3 col-xs-3">
+                    <div class="card rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(148,175,215);
+                        background: linear-gradient(90deg, rgba(148,175,215,1) 0%, rgba(100,179,226,1) 100%);
+                        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                        <div class="card-body" style="color:#fff;text-shadow: 1px 0.5px #000000;">
                             <strong>รายการยังไม่ได้ตรวจสอบ</strong>
-                            <h3><strong style="color:#6666d4"><?php echo $dashbord->status1 ?></strong></h3>
+                            <h3><strong><?php echo $dashbord->status1 ?></strong></h3>
                             <div>รายการ</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card shadow bg-body rounded" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="card-body" style="background-color: initial;">
+                <div class="col-md-3 col-xs-3">
+                    <div class="card rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(215,210,148);
+                        background: linear-gradient(90deg, rgba(215,210,148,1) 0%, rgba(226,176,100,1) 100%);
+                        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                        <div class="card-body" style="color:#fff; text-shadow: 1px 0.5px #000000;">
                             <strong>อยู่ระหว่างดำเนินการ</strong>
-                            <h3><strong style="color:#6666d4"><?php echo $dashbord->status2 ?></strong></h3>
+                            <h3><strong><?php echo $dashbord->status2 ?></strong></h3>
                             <div>รายการ</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card shadow bg-body rounded" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="card-body" style="background-color: initial;">
+                <div class="col-md-3 col-xs-3">
+                    <div class="card rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(153,148,215);
+                        background: linear-gradient(90deg, rgba(153,148,215,1) 0%, rgba(121,100,226,1) 100%);
+                        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                        <div class="card-body" style="color:#fff; text-shadow: 1px 0.5px #000000;">
                             <strong>รอตรวจสอบ</strong>
-                            <h3><strong style="color:#6666d4"><?php echo $dashbord->status3 ?></strong></h3>
+                            <h3><strong><?php echo $dashbord->status3 ?></strong></h3>
                             <div>รายการ</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card shadow bg-body rounded" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="card-body" style="background-color: initial;">
+                <div class="col-md-3 col-xs-3">
+                    <div class="card rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(89,166,77);
+                         background: linear-gradient(90deg, rgba(89,166,77,1) 0%, rgba(117,201,91,1) 100%);
+                         box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                        <div class="card-body" style="color:#fff; text-shadow: 1px 0.5px #000000;">
                             <strong>อนุมัติ</strong>
-                            <h3><strong style="color:#6666d4"><?php echo $dashbord->status4 ?></strong></h3>
+                            <h3><strong><?php echo $dashbord->status4 ?></strong></h3>
                             <div>รายการ</div>
                         </div>
                     </div>
@@ -44,7 +52,7 @@
     </div>
 </section>
 <section class="carousel_se_02">
-    <div style="margin-top:100px">
+    <div style="margin-top:50px">
         <div class="row">
             <div class="col-sm-12 text-center wow fadeInUp" data-aos="zoom-in">
                 <h2>เลือกบริการที่คุณต้องการ</h2>
@@ -55,15 +63,17 @@
                     <div class="item">
                         <div style="padding:20px">
                             <a class="ls " href="<?php echo site_url('onestopservice') ?>">
-                                <div class="card shadow  rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(216,218,221);
-background: linear-gradient(90deg, rgba(216,218,221,0.7315301120448179) 0%, rgba(135,135,139,0.6671043417366946) 49%, rgba(216,218,221,0.6755077030812324) 100%);">
+                                <div class="card   rounded" data-aos="zoom-out" data-aos-delay="200" style="background: rgb(150,157,149);
+                                  background: linear-gradient(90deg, rgba(150,157,149,0) 0%, rgba(142,153,139,0.227328431372549) 100%);
+                                  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 
+                                  0px 1px 0px inset;">
                                     <div class="card-body" style="background-color: initial;">
                                         <div class="">
                                             <div class="product-image3 hover15">
-                                                <img src="assets/image/service_2.jpg" alt="ศูนย์บริการจุดเดียวเบ็ดเสร็จ" class="img-fluid pic-1">
+                                                <img src="assets/image/complaint-form.jpg" alt="ศูนย์บริการจุดเดียวเบ็ดเสร็จ" class="img-fluid  rounded">
                                                 <div class="overlay">
                                                     <h5 class="text-white">ศูนย์บริการจุดเดียวเบ็ดเสร็จ</h5>
-                                                    <h4 class="text-white">บริการยื่นคำร้อง/ร้องเรียน และติดตามผล</h4>
+                                                    <strong class="text-white">บริการยื่นคำร้อง/ร้องเรียน และติดตามผล</strong>
                                                 </div>
                                             </div>
 
@@ -77,15 +87,17 @@ background: linear-gradient(90deg, rgba(216,218,221,0.7315301120448179) 0%, rgba
                     <div class="item">
                         <div style="padding:20px">
                             <a class="ls " href="<?php echo site_url('indextestmodel') ?>">
-                                <div class="card shadow  rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(216,218,221);
-background: linear-gradient(90deg, rgba(216,218,221,0.7315301120448179) 0%, rgba(135,135,139,0.6671043417366946) 49%, rgba(216,218,221,0.6755077030812324) 100%); border-radius: 50px;">
-                                    <div class="card-body" style="background-color: initial;">
+                                <div class="card  rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(150,157,149);
+                                  background: linear-gradient(90deg, rgba(150,157,149,0) 0%, rgba(142,153,139,0.227328431372549) 100%);
+                                  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 
+                                  0px 1px 0px inset;">
+                                    <div class="card-body" style="background-color: initial;padding:-10px">
                                         <div class="">
                                             <div class="product-image3 hover15">
-                                                <img src="assets/image/service_2.jpg" alt="ศูนย์บริการจุดเดียวเบ็ดเสร็จ" class="img-fluid pic-1">
+                                                <img src="assets/image/service_2.jpg" alt="ศูนย์บริการจุดเดียวเบ็ดเสร็จ" class="img-fluid  rounded">
                                                 <div class="overlay">
                                                     <h5 class="text-white">ทดสอบ insert update delete</h5>
-                                                    <h4 class="text-white">บริการยื่นคำร้อง/ร้องเรียน และติดตามผล</h4>
+                                                    <strong class="text-white">บริการยื่นคำร้อง/ร้องเรียน และติดตามผล</strong>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,15 +110,17 @@ background: linear-gradient(90deg, rgba(216,218,221,0.7315301120448179) 0%, rgba
                     <!-- 3 -->
                     <div class="item">
                         <div style="padding:20px">
-                            <div class="card shadow rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(216,218,221);
-background: linear-gradient(90deg, rgba(216,218,221,0.7315301120448179) 0%, rgba(135,135,139,0.6671043417366946) 49%, rgba(216,218,221,0.6755077030812324) 100%);">
+                            <div class="card  rounded" data-aos="zoom-out" data-aos-delay="200" style="background: rgb(150,157,149);
+                                  background: linear-gradient(90deg, rgba(150,157,149,0) 0%, rgba(142,153,139,0.227328431372549) 100%);
+                                  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 
+                                  0px 1px 0px inset;">
                                 <div class="card-body" style="background-color: initial;">
                                     <div class="">
                                         <div class="product-image3 hover15">
-                                            <img src="assets/image/service_2.jpg" alt="ศูนย์บริการจุดเดียวเบ็ดเสร็จ" class="img-fluid pic-1">
+                                            <img src="assets/image/coming-soon.jpg" alt="ศูนย์บริการจุดเดียวเบ็ดเสร็จ" class="img-fluid  rounded">
                                             <div class="overlay">
                                                 <h5 class="text-white">comming soon</h5>
-                                                <h4 class="text-white">comming soon</h4>
+                                                <strong class="text-white">comming soon</strong>
                                             </div>
                                         </div>
                                     </div>
@@ -134,6 +148,7 @@ background: linear-gradient(90deg, rgba(216,218,221,0.7315301120448179) 0%, rgba
         overflow: hidden;
 
     }
+
     .hover15::before {
         position: absolute;
         top: 50%;
@@ -149,6 +164,7 @@ background: linear-gradient(90deg, rgba(216,218,221,0.7315301120448179) 0%, rgba
         transform: translate(-50%, -50%);
         opacity: 0;
     }
+
     .hover15:hover::before {
         -webkit-animation: circle .75s;
         animation: circle .75s;
@@ -172,6 +188,7 @@ background: linear-gradient(90deg, rgba(216,218,221,0.7315301120448179) 0%, rgba
         height: auto;
         display: inline-block;
     }
+
     .overlay {
         position: absolute;
         top: 0;
@@ -187,9 +204,11 @@ background: linear-gradient(90deg, rgba(216,218,221,0.7315301120448179) 0%, rgba
         opacity: 0;
         transition: opacity 0.3s ease;
     }
+
     .card-body:hover .overlay {
         opacity: 1;
     }
+
     .overlay h5 {
         color: #fff;
         text-align: center;

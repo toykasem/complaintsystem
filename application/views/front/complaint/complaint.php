@@ -18,197 +18,204 @@
                 </div>
                 <br />
                 <form id="multi-step-form" method="post" action="javascript:void(0)" enctype="multipart/form-data">
-                    <div class="step step-1">
-                        <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
-                            <strong style="text-align:center">เรื่องที่ต้องการร้องเรียน</strong>
-                        </div>
-                        <br />
-                        <br />
-                        <div class="mb-3">
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-5">
-                                    <select class="form-control" id="petition_type" name="petition_type" required placeholder="เลือกจังหวัด">
-                                        <option class="form-control" value="">ประเภทคำร้อง</option>
-                                        <?php foreach ($selectoption as $option) { ?>
-                                            <option value="<?php echo $option->su_id; ?>"><?php echo $option->topic_name . ' -> ' . $option->subtopic_name; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <div class="col-md-5">
-                                    <input type="text" id="topic" name="topic" class="form-control" placeholder="หัวข้อเรื่อง *" required>
-                                </div>
+                        <div class="step step-1">
+                            <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
+                                <h3 style="text-align:center;font-weight:600">เรื่องที่ต้องการร้องเรียน</h3>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+                                        <select class="form-control" id="petition_type" name="petition_type" required>
+                                            <option value="">เลือกประเภทคำร้อง</option>
+                                            <?php
+                                            $prev_topic_name = "";
+                                            foreach ($selectoption as $option) {
+                                                if ($prev_topic_name != $option->topic_name) { ?>
+                                                    <optgroup label="<?php echo $option->topic_name; ?>">
+                                                    <?php  } ?>
+                                                    <option value="<?php echo $option->su_id; ?>"><?php echo $option->subtopic_name; ?></option>
+                                                <?php $prev_topic_name = $option->topic_name;
+                                            }   ?>
+                                                    </optgroup>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" id="topic" name="topic" class="form-control" placeholder="หัวข้อเรื่อง *" required>
+                                    </div>
 
-                                <div class="col-md-1"></div>
-                            </div>
-                            <br />
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-10">
-                                    <textarea class="form-control" name="detail" id="detail" rows="3" placeholder="รายละเอียด *" required></textarea>
+                                    <div class="col-md-1"></div>
                                 </div>
-                                <div class="col-md-1"></div>
-                            </div>
-                            <br />
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-5">
-                                    <div class="row">
-                                        <div class="col-md-4" style="padding-right: 8px;">
-                                            <select class="form-control" name="titlename" id="titlename" required>
-                                                <option value="" selected disabled hidden>คำนำหน้า</option>
-                                                <?php foreach ($titlename as $title) { ?>
-                                                    <option value="<?php echo $title->id; ?>">
-                                                        <?php echo $title->name; ?>
-                                                    </option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-8" style="padding-left: 0px;">
-                                            <input type="text" class="form-control" id="fristname" name="fristname" placeholder="ชื่อ (ภาษาไทย) *" required>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10">
+                                        <textarea class="form-control" name="detail" id="detail" rows="3" placeholder="รายละเอียด *" required></textarea>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-right: 8px;">
+                                                <select class="form-control" name="titlename" id="titlename" required>
+                                                    <option value="" selected disabled hidden>คำนำหน้า</option>
+                                                    <?php foreach ($titlename as $title) { ?>
+                                                        <option value="<?php echo $title->id; ?>">
+                                                            <?php echo $title->name; ?>
+                                                        </option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-8" style="padding-left: 0px;">
+                                                <input type="text" class="form-control" id="fristname" name="fristname" placeholder="ชื่อ (ภาษาไทย) *" required>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" id="lasttname" name="lasttname" placeholder="นามสกุล (ภาษาไทย) *" required>
+                                    </div>
+                                    <div class="col-md-1"></div>
                                 </div>
-                                <div class="col-md-5">
-                                    <input type="text" class="form-control" id="lasttname" name="lasttname" placeholder="นามสกุล (ภาษาไทย) *" required>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" id="idcard" name="idcard" placeholder="หมายเลขบัตรประชาชน 13 หลัก" maxlength="13" onKeyUp="if(isNaN(this.value)){ swal('warning', 'กรุณากรอกตัวเลข', 'warning'); this.value='';}" required>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="หมายเลขโทรศัพท์มือถือ (เช่น 090 123 4567) *" maxlength="10" onKeyUp="if(isNaN(this.value)){ swal('warning', 'กรุณากรอกตัวเลข', 'warning'); this.value='';}" required>
+                                    </div>
+                                    <div class="col-md-1"></div>
                                 </div>
-                                <div class="col-md-1"></div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="อีเมล (เช่น john@mail.com)" required>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
                             </div>
                             <br />
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-5">
-                                    <input type="text" class="form-control" id="idcard" name="idcard" placeholder="หมายเลขบัตรประชาชน 13 หลัก" required>
-                                </div>
-                                <div class="col-md-5">
-                                    <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="หมายเลขโทรศัพท์มือถือ (เช่น 090 123 4567) *" required>
-                                </div>
-                                <div class="col-md-1"></div>
-                            </div>
-                            <br />
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-5">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="อีเมล (เช่น john@mail.com)" required>
-                                </div>
-                                <div class="col-md-6"></div>
+                            <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
+                                <button type="button" class="btn btn-primary next-step">ถัดไป</button>
                             </div>
                         </div>
-                        <br />
-                        <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
-                            <button type="button" class="btn btn-primary next-step">ต่อไป</button>
-                        </div>
-                    </div>
 
-                    <div class="step step-2">
-                        <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
-                            <strong style="text-align:center">ที่อยู่</strong>
-                        </div>
-                        <br />
-                        <br />
-                        <div class="mb-3">
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-5">
-                                    <input type="text" class="form-control" id="homenumber" name="homenumber" placeholder="บ้านเลขที่/หมู่บ้าน/อาคาร" required>
-                                </div>
-                                <div class="col-md-5">
-                                    <input type="text" class="form-control" id="moo" name="moo" placeholder="หมู่ที่" required>
-                                </div>
+                        <div class="step step-2">
+                            <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
+                                <strong style="text-align:center">ที่อยู่</strong>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" id="homenumber" name="homenumber" placeholder="บ้านเลขที่/หมู่บ้าน/อาคาร" required>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" id="moo" name="moo" placeholder="หมู่ที่" required>
+                                    </div>
 
-                                <div class="col-md-1"></div>
-                            </div>
-                            <br />
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-5">
-                                    <input type="text" class="form-control" id="alley" name="alley" placeholder="ซอย">
+                                    <div class="col-md-1"></div>
                                 </div>
-                                <div class="col-md-5">
-                                    <input type="text" class="form-control" id="road" name="road" placeholder="ถนน">
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" id="alley" name="alley" placeholder="ซอย">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" id="road" name="road" placeholder="ถนน">
+                                    </div>
+                                    <div class="col-md-1"></div>
                                 </div>
-                                <div class="col-md-1"></div>
-                            </div>
-                            <br />
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-5">
-                                    <select class="form-control" id="province" name="province" onchange="getdistrict(this.value)" required>
-                                        <option value="">เลือกจังหวัด</option>
-                                        <?php foreach ($province as $pv) { ?>
-                                            <option value="<?php echo $pv->id; ?>"><?php echo $pv->name_th; ?> </option>
-                                        <?php } ?>
-                                    </select>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+                                        <select class="form-control" id="province" name="province" onchange="getdistrict(this.value)" required>
+                                            <option value="">เลือกจังหวัด</option>
+                                            <?php foreach ($province as $pv) { ?>
+                                                <option value="<?php echo $pv->id; ?>"><?php echo $pv->name_th; ?> </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-control" id="district" name="district" onchange="getsubdistrict(this.value)" required>
+                                            <option value="">เลือกอำเภอ </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1"></div>
                                 </div>
-                                <div class="col-md-5">
-                                    <select class="form-control" id="district" name="district" onchange="getsubdistrict(this.value)" required>
-                                        <option value="">เลือกอำเภอ </option>
-                                    </select>
-                                </div>
-                                <div class="col-md-1"></div>
-                            </div>
-                            <br />
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-5">
-                                    <select class="form-control" id="sub_district" onchange="getapostcode(this.value)" name="sub_district" required>
-                                        <option value="">เลือกตำบล</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-5">
-                                    <select name="postcode" id="postcode" disabled class="form-control">
-                                        <option value="">รหัสไปรษณีย์</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-1"></div>
-                            </div>
-
-                        </div>
-                        <br />
-                        <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
-                            <button type="button" class="btn btn-primary prev-step">Previous</button>
-                            <button type="button" class="btn btn-primary next-step">Next</button>
-                        </div>
-                    </div>
-                    <div class="step step-3">
-                        <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
-                            <strong style="text-align:center">แนบไฟล์เอกสาร เพิ่มติม</strong>
-                        </div>
-                        <br />
-                        <br />
-                        <div class="mb-3">
-                            <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-10">
-                                    <label for="images" class="drop-container" id="dropcontainer">
-                                        <span class="drop-title">แนบไฟล์</span>
-                                        or
-                                        <input type="file" name="images" id="images" accept="image/*">
-                                    </label>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+                                        <select class="form-control" id="sub_district" onchange="getapostcode(this.value)" name="sub_district" required>
+                                            <option value="">เลือกตำบล</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select name="postcode" id="postcode" disabled class="form-control">
+                                            <option value="">รหัสไปรษณีย์</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1"></div>
                                 </div>
 
-                                <div class="col-md-1"></div>
+                            </div>
+                            <br />
+                            <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
+                                <button type="button" class="btn btn-primary prev-step">ย้อนกลับ</button>
+                                <button type="button" class="btn btn-primary next-step">ถัดไป</button>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
-                            <button type="button" class="btn btn-primary prev-step">Previous</button>
-                            <button type="button" class="btn btn-primary next-step btn-show-data">Next</button>
+                        <div class="step step-3">
+                            <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
+                                <strong style="text-align:center">แนบไฟล์เอกสาร เพิ่มติม</strong>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10">
+                                        <label for="images" class="drop-container" id="dropcontainer">
+                                            <span class="drop-title">แนบไฟล์</span>
+                                            or
+                                            <input type="file" name="images" id="images" accept="image/*">
+                                        </label>
+                                    </div>
+
+                                    <div class="col-md-1"></div>
+                                </div>
+                            </div>
+                            <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
+                                <button type="button" class="btn btn-primary prev-step">ย้อนกลับ</button>
+                                <button type="button" class="btn btn-primary next-step btn-show-data">ถัดไป</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="step step-4">
-                        <br /><br />
-                        <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
-                            <h3>รายละเอียดข้อมูล</h3>
+                        <div class="step step-4">
+                            <br /><br />
+                            <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
+                                <h3>รายละเอียดข้อมูล</h3>
+                            </div>
+                            <br />
+                            <div class="mb-3" id="showedatafield4">
+                            </div>
+                            <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
+                                <button type="button" class="btn btn-primary prev-step">ย้อนกลับ</button>
+                                <button type="submit" class="btn btn-success save-step">บันทึกข้อมูล</button>
+                            </div>
                         </div>
-                        <br />
-                        <div class="mb-3" id="showedatafield4">
-                        </div>
-                        <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
-                            <button type="button" class="btn btn-primary prev-step">Previous</button>
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
             </div>
         </div>
     </div>
@@ -262,91 +269,6 @@
 
     $(document).ready(function() {
         $('#multi-step-form').find('.step').slice(1).hide();
-
-        $(".next-step").click(function() {
-            if (currentStep < 4) {
-                $(".step-" + currentStep).addClass("animate__animated animate__fadeOutLeft");
-                currentStep++;
-                setTimeout(function() {
-                    $(".step").removeClass("animate__animated animate__fadeOutLeft").hide();
-                    $(".step-" + currentStep).show().addClass("animate__animated animate__fadeInRight");
-                    updateProgressBar();
-                }, 500);
-            }
-        });
-
-        $(".prev-step").click(function() {
-            if (currentStep > 1) {
-                $(".step-" + currentStep).addClass("animate__animated animate__fadeOutRight");
-                currentStep--;
-                setTimeout(function() {
-                    $(".step").removeClass("animate__animated animate__fadeOutRight").hide();
-                    $(".step-" + currentStep).show().addClass("animate__animated animate__fadeInLeft");
-                    updateProgressBar();
-                }, 500);
-            }
-        });
-
-        updateProgressBar = function() {
-            var progressPercentage = ((currentStep - 1) / 3) * 100;
-            $(".progress-bar").css("width", progressPercentage + "%");
-        }
-    });
-    $(".btn-show-data").click(function() {
-        var petition_type = $("#petition_type").val();
-        var topic = $("#topic").val();
-        var detail = $("#detail").val();
-        var titlename = $("#titlename").val();
-        var fristname = $("#fristname").val();
-        var lasttname = $("#lasttname").val();
-        var idcard = $("#idcard").val();
-        var phonenumber = $("#phonenumber").val();
-        var email = $("#email").val();
-        var homenumber = $("#homenumber").val();
-        var moo = $("#moo").val();
-        var alley = $("#alley").val();
-        var road = $("#road").val();
-        var province = $("#province").val();
-        var district = $("#district").val();
-        var sub_district = $("#sub_district").val();
-        var postcode = $("#postcode").val();
-        var images = $("#images").val();
-        $('#showedatafield4').empty();
-
-        $("#showedatafield4").append(
-            "<div class='container'> <div class='row'>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>ประเภทคำร้อง :</strong> " + petition_type + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>หัวข้อเรื่อง :</strong> " + topic + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>รายละเอียด :</strong> " + detail + "</div>" +
-            "</div>" +
-            "<div class='row'>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>ชื่อ :</strong> " + titlename + " " + fristname + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>นามสกุล :</strong> " + lasttname + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>หมายเลขบัตรประชาชน :</strong> " + idcard + "</div>" +
-            "</div>" +
-            "<div class='row'>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>หมายเลขโทรศัพท์มือถือ :</strong> " + phonenumber + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>อีเมล :</strong> " + email + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>บ้านเลขที่ :</strong> " + homenumber + "</div>" +
-            "</div>" +
-            "<div class='row'>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>หมู่ที่ :</strong> " + moo + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>ซอย :</strong> " + alley + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>ถนน :</strong> " + road + "</div>" +
-            "</div>" +
-            "<div class='row'>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>จังหวัด :</strong> " + province + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>อำเภอ :</strong> " + district + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>ตำบล :</strong> " + sub_district + "</div>" +
-            "</div>" +
-            "<div class='row'>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>รหัสไปรษณีย์ :</strong> " + postcode + "</div>" +
-            "<div class='col-md-4'><strong style='font-size:18px;'>ไฟล์เอกสาร :</strong> " + images + "</div>" +
-            "</div></div>"
-        );
-    });
-
-    $(document).ready(function() {
         $("#multi-step-form").validate({
             errorPlacement: function(error, element) {
                 error.insertAfter(element);
@@ -425,12 +347,13 @@
                     required: "*",
                 },
                 idcard: {
-                    required: "*",
-                    maxlength: 13
+                    required: "กรุณา กรอกเลขบัตรให้ครบ 13 หลัก",
+                    maxlength: 13,
                 },
                 phonenumber: {
                     required: "*",
-                    maxlength: 10
+                    maxlength: 10,
+                    phonenumber: "กรุณาเบอร์โทร",
                 },
                 email: {
                     required: "*",
@@ -454,8 +377,7 @@
                 postcode: {
                     required: "*",
                 },
-            },
-            submitHandler: function(form) {
+            },  submitHandler: function(form) {
                 var formData = new FormData(form);
                 swal({
                     title: "แน่ใจหรือไม่ ?",
@@ -468,8 +390,8 @@
                     cancelButtonText: "ยกเลิก",
                     closeOnConfirm: false,
                     closeOnCancel: false
-                }, function(willDelete) {
-                    if (willDelete) {
+                }, function(confrim) {
+                    if (confrim) {
                         $.ajax({
                             url: "<?php echo site_url('Home/insert_petition') ?>",
                             dataType: 'json',
@@ -498,9 +420,95 @@
                             "error");
                     }
                 });
-                return false; // Prevent default form submission
+                return false; 
             }
         });
+
+        $(".next-step").click(function() {
+            if ($("#multi-step-form").valid()) {
+                if (currentStep < 4) {
+                    $(".step-" + currentStep).addClass("animate__animated animate__fadeOutLeft");
+                    currentStep++;
+                    setTimeout(function() {
+                        $(".step").removeClass("animate__animated animate__fadeOutLeft").hide();
+                        $(".step-" + currentStep).show().addClass("animate__animated animate__fadeInRight");
+                        updateProgressBar();
+                    }, 500);
+                }
+            }
+        });
+        $(".prev-step").click(function() {
+            if (currentStep > 1) {
+                $(".step-" + currentStep).addClass("animate__animated animate__fadeOutRight");
+                currentStep--;
+                setTimeout(function() {
+                    $(".step").removeClass("animate__animated animate__fadeOutRight").hide();
+                    $(".step-" + currentStep).show().addClass("animate__animated animate__fadeInLeft");
+                    updateProgressBar();
+                }, 500);
+            }
+        });
+        updateProgressBar = function() {
+            var progressPercentage = ((currentStep - 1) / 3) * 100;
+            $(".progress-bar").css("width", progressPercentage + "%");
+        }
+
+    
+    });
+
+
+    $(".btn-show-data").click(function() {
+        var petition_type = $("#petition_type").val();
+        var topic = $("#topic").val();
+        var detail = $("#detail").val();
+        var titlename = $("#titlename").val();
+        var fristname = $("#fristname").val();
+        var lasttname = $("#lasttname").val();
+        var idcard = $("#idcard").val();
+        var phonenumber = $("#phonenumber").val();
+        var email = $("#email").val();
+        var homenumber = $("#homenumber").val();
+        var moo = $("#moo").val();
+        var alley = $("#alley").val();
+        var road = $("#road").val();
+        var province = $("#province").val();
+        var district = $("#district").val();
+        var sub_district = $("#sub_district").val();
+        var postcode = $("#postcode").val();
+        var images = $("#images").val();
+        $('#showedatafield4').empty();
+
+        $("#showedatafield4").append(
+            "<div class='container'> <div class='row'>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>ประเภทคำร้อง :</strong> " + petition_type + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>หัวข้อเรื่อง :</strong> " + topic + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>รายละเอียด :</strong> " + detail + "</div>" +
+            "</div>" +
+            "<div class='row'>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>ชื่อ :</strong> " + titlename + " " + fristname + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>นามสกุล :</strong> " + lasttname + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>หมายเลขบัตรประชาชน :</strong> " + idcard + "</div>" +
+            "</div>" +
+            "<div class='row'>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>หมายเลขโทรศัพท์มือถือ :</strong> " + phonenumber + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>อีเมล :</strong> " + email + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>บ้านเลขที่ :</strong> " + homenumber + "</div>" +
+            "</div>" +
+            "<div class='row'>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>หมู่ที่ :</strong> " + moo + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>ซอย :</strong> " + alley + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>ถนน :</strong> " + road + "</div>" +
+            "</div>" +
+            "<div class='row'>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>จังหวัด :</strong> " + province + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>อำเภอ :</strong> " + district + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>ตำบล :</strong> " + sub_district + "</div>" +
+            "</div>" +
+            "<div class='row'>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>รหัสไปรษณีย์ :</strong> " + postcode + "</div>" +
+            "<div class='col-md-4'><strong style='font-size:18px;'>ไฟล์เอกสาร :</strong> " + images + "</div>" +
+            "</div></div>"
+        );
     });
 </script>
 <style>
@@ -614,5 +622,14 @@
         font-family: Arial, sans-serif;
         font-size: 16px;
         font-weight: bold;
+    }
+
+    select#petition_type optgroup {
+        font-weight: bold;
+        pointer-events: none;
+    }
+
+    select#petition_type option {
+        padding-left: 20px;
     }
 </style>

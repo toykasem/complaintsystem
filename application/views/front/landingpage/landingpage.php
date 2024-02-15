@@ -5,7 +5,7 @@
         </div>
         <br />
         <div style="display: flex;flex-direction: column;align-items: center;">
-                <div class="card shadow bg-body rounded" style="width: 50rem;" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card rounded " style="width: 50rem;box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;cursor: pointer;" data-aos="zoom-in" data-aos-delay="200" >
                     <div class="card-body" style="background-color: initial;">
                         <div class="row">
                             <div class="col-md-7">
@@ -15,14 +15,14 @@
                                 <p class="card-text">จากหน่วยงานของคุณ ผ่านระบบออนไลน์ได้อย่างง่ายดาย</p>
                             </div>
                             <div class="col-md-5">
-                                <a href="<?php echo site_url('homeview') ?>" class="btn btn-primary" style="margin-top:38px"> <strong> เข้าหน้าระบบเพื่อร้องเรียน </strong> <span class="icon-arrow-right"></a>
+                                <a href="<?php echo site_url('homeview') ?>" class="btn btn-primary" style="margin-top:38px"> <strong> เข้าหน้าระบบเพื่อร้องเรียน </strong> <span class="icon-bubbles4"></a>
                             </div>
                         </div>
                     </div>
                 </div>
             <br />
-
-                <div class="card shadow bg-body rounded" style="width: 50rem;" data-aos="zoom-in" data-aos-delay="100">
+            <br />
+                <div class="card rounded" style="width: 50rem; box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;cursor: pointer;" data-aos="zoom-in" data-aos-delay="100">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-7">
@@ -33,7 +33,7 @@
                                     ได้สะดวกกว่าเดิม</p>
                             </div>
                             <div class="col-md-5">
-                                <a href="<?php echo site_url('loginbackend') ?> " class="btn btn-primary" style="margin-top:38px"> <strong> เข้าสู่ระบบ <span class="icon-arrow-right"></span></a>
+                                <a href="<?php echo site_url('loginbackend') ?> " class="btn btn-primary" style="margin-top:38px"> <strong> เข้าสู่ระบบ <span class="icon-cog"></span></a>
                             </div>
                         </div>
                     </div>

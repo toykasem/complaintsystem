@@ -33,36 +33,39 @@
         </div>
     </div>
 </div> -->
-<div class="card">
-    <div class="card-body">
+<br/>
+<hr/>
         <div class="row">
-            <div class="col-md-3">
+            <div  align="center">
                 <div class="step-circle" style="<?= $status === '1' || $status === '2' ||  $status === '3' ||  $status === '4' ? 'background-color:#1bc51b;text-align:center' : '' ?>">
                     <span class="icon-pen" style="font-size: 30px; font-weight: 300;"></span>
+                    
                 </div>
-                <strong class="d-flex justify-content-between">ยังไม่ได้ตรวจสอบ</strong>
+                <strong class="d-flex justify-content-between " style="flex-direction: column;">ยังไม่ได้ตรวจสอบ</strong>
+                <span class="icon-arrow-down" style="font-size: 30px; font-weight: 300;"></span>
+        
             </div>
-            <div class="col-md-3">
+            <div  align="center">
                 <div class="step-circle" style=" <?= $status === '2' ||  $status === '3' ||  $status === '4' ? 'background-color:#1bc51b;text-align:center' : '' ?>">
                     <span class="icon-address-book" style="font-size: 30px; font-weight: 300;">
                 </div>
-                <strong class="d-flex justify-content-between">อยู่ระหว่างดำเนินการ</strong>
+                <strong class="d-flex justify-content-between " style="flex-direction: column;">อยู่ระหว่างดำเนินการ</strong>
+                <span class="icon-arrow-down" style="font-size: 30px; font-weight: 300;"></span>
             </div>
-            <div class="col-md-3">
+            <div  align="center">
                 <div class="step-circle" style=" <?= $status === '3' ||  $status === '4'  ? 'background-color:#1bc51b;text-align:center' : '' ?>">
                     <span class="icon-folder-open" style="font-size: 30px; font-weight: 300;">
                 </div>
-                <strong class="d-flex justify-content-between">รอตรวจสอบ</strong>
+                <strong class="d-flex justify-content-between " style="flex-direction: column;">รอตรวจสอบ</strong>
+                <span class="icon-arrow-down" style="font-size: 30px; font-weight: 300;"></span>
             </div>
-            <div class="col-md-3">
+            <div  align="center">
                 <div class="step-circle" style=" <?= $status === '4'  ? 'background-color:#1bc51b;text-align:center' : '' ?>">
                     <span class="icon-checkmark" style="font-size: 30px; font-weight: 300;">
                 </div>
-                <strong class="d-flex justify-content-between">อนุมัคิสำเร็จ</strong>
+                <strong class="d-flex justify-content-between " style="flex-direction: column;">อนุมัคิสำเร็จ</strong>
             </div>
         </div>
-    </div>
-</div>
 <style>
     .step-container {
         position: relative;
