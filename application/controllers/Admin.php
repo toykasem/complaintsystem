@@ -31,10 +31,15 @@ class Admin extends CI_Controller
 			$data['password'] = "";
 			$this->load->view('backend/login', $data);
 		} else {
-			
+
 			$data['petition']  = $this->model->selectpetition();
 			$data['ShowPage'] = 'backend/data_compain/datacompaim';
 			$this->load->view('backend/indexpage', $data);
 		}
+	}
+	public function phinix()
+	{
+		$data['ShowPage'] = 'backend/phinix';
+		$this->load->view('backend/indexpage', $data);
 	}
 }

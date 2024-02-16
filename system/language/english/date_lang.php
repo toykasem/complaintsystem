@@ -91,5 +91,5 @@ $lang['UP11']	= '(UTC +11:00) Srednekolymsk Time, Solomon Islands, Vanuatu';
 $lang['UP115']	= '(UTC +11:30) Norfolk Island';
 $lang['UP12']	= '(UTC +12:00) Fiji, Gilbert Islands, Kamchatka Time, New Zealand Standard Time';
 $lang['UP1275']	= '(UTC +12:45) Chatham Islands Standard Time';
-$lang['UP13']	= '(UTC +13:00) Samoa Time Zone, Phoenix Islands Time, Tonga';
+$lang['UP13']	= '(UTC +13:00) Samoa Time Zone, complian Islands Time, Tonga';
 $lang['UP14']	= '(UTC +14:00) Line Islands';

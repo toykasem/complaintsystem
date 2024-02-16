@@ -3,7 +3,7 @@
         <?php foreach ($datadashbord as $dashbord) { ?>
             <div class="row">
 
-                <div class="col-md-3 col-xs-3">
+                <div class="col-md-3 col-xs-3 font_view">
                     <div class="card rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(148,175,215);
                         background: linear-gradient(90deg, rgba(148,175,215,1) 0%, rgba(100,179,226,1) 100%);
                         box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-xs-3">
+                <div class="col-md-3 col-xs-3 font_view">
                     <div class="card rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(215,210,148);
                         background: linear-gradient(90deg, rgba(215,210,148,1) 0%, rgba(226,176,100,1) 100%);
                         box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-xs-3">
+                <div class="col-md-3 col-xs-3 font_view">
                     <div class="card rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(153,148,215);
                         background: linear-gradient(90deg, rgba(153,148,215,1) 0%, rgba(121,100,226,1) 100%);
                         box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-xs-3">
+                <div class="col-md-3 col-xs-3 font_view">
                     <div class="card rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(89,166,77);
                          background: linear-gradient(90deg, rgba(89,166,77,1) 0%, rgba(117,201,91,1) 100%);
                          box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
@@ -66,7 +66,7 @@
                                 <div class="card   rounded" data-aos="zoom-out" data-aos-delay="200" style="background: rgb(150,157,149);
                                   background: linear-gradient(90deg, rgba(150,157,149,0) 0%, rgba(142,153,139,0.227328431372549) 100%);
                                   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 
-                                  0px 1px 0px inset;">
+                                  0px 1px 0px inset; height: 320px;">
                                     <div class="card-body" style="background-color: initial;">
                                         <div class="">
                                             <div class="product-image3 hover15">
@@ -90,7 +90,7 @@
                                 <div class="card  rounded" data-aos="zoom-in" data-aos-delay="200" style="background: rgb(150,157,149);
                                   background: linear-gradient(90deg, rgba(150,157,149,0) 0%, rgba(142,153,139,0.227328431372549) 100%);
                                   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 
-                                  0px 1px 0px inset;">
+                                  0px 1px 0px inset; height: 320px;">
                                     <div class="card-body" style="background-color: initial;padding:-10px">
                                         <div class="">
                                             <div class="product-image3 hover15">
@@ -113,7 +113,7 @@
                             <div class="card  rounded" data-aos="zoom-out" data-aos-delay="200" style="background: rgb(150,157,149);
                                   background: linear-gradient(90deg, rgba(150,157,149,0) 0%, rgba(142,153,139,0.227328431372549) 100%);
                                   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 
-                                  0px 1px 0px inset;">
+                                  0px 1px 0px inset; height: 320px;">
                                 <div class="card-body" style="background-color: initial;">
                                     <div class="">
                                         <div class="product-image3 hover15">

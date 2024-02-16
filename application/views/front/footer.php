@@ -4,7 +4,7 @@
             <div class="col-md-2">
                 <div class="footer-logo">
                     <div>
-                        <img class="logo" src="assets/image/facebook.png" style="width: 16%;" />
+                        <img class="logo logo-footer" src="assets/image/facebook.png" />
                     </div>
                 </div>
             </div>
@@ -14,7 +14,7 @@
             <div class="col-md-2">
                 <div class="footer-logo">
                     <div>
-                        <img class="logo" src="assets/image/youtube.png" style="width: 20%;" />
+                        <img class="logo logo-footer" src="assets/image/youtube.png" />
                     </div>
                 </div>
             </div>
