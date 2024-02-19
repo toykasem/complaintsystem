@@ -67,6 +67,7 @@
     <script src="<?php echo base_url(); ?>assets/cssbackend/themecss/vendors/feather-icons/feather.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/cssbackend/themecss/vendors/dayjs/dayjs.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/cssbackend/themecss/assets/js/complian.js"></script>
+    <script src="<?php echo base_url(); ?>assets/datatable/datatablecomplain.js"></script>
     <script src="<?php echo base_url(); ?>assets/cssbackend/themecss/vendors/echarts/echarts.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/cssbackend/themecss/vendors/leaflet/leaflet.js"></script>
     <script src="<?php echo base_url(); ?>assets/cssbackend/themecss/vendors/leaflet.markercluster/leaflet.markercluster.js"></script>

@@ -2,7 +2,7 @@
 <html lang="th">
 
 <head>
-    <<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/cssfront/style.css" />
     <link href="<?php echo base_url(); ?>assets/cssfront/other_css/aos/aos.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/cssfront/other_css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'> -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/cssfront/other_css/icomoon/style.css">
     <link href="<?php echo base_url(); ?>assets/cssfront/other_css/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/cssfront/other_css/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -82,9 +81,8 @@ background: radial-gradient(circle, rgba(169,157,230,1) 0%, rgba(175,178,213,1) 
         <script src="<?php echo base_url(); ?>assets/cssfront/other_css/swiper/swiper-bundle.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/cssfront/other_css/php-email-form/validate.js"></script>
         <script src="<?php echo base_url(); ?>assets/cssfront/js/main.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
-
-
-
+        <script src="<?php echo base_url(); ?>assets/cssfront/css/bootstrap.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/cssfront/css/jquery-3.6.0.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/cssfront/css/jquery.validate.min.js"></script>
 
 </html>

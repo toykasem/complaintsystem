@@ -90,7 +90,8 @@ class Homemodel extends CI_Model
 		$province,
 		$district,
 		$sub_district,
-		$postcode
+		$postcode,
+		$images
 	) {
 		$query = "INSERT INTO petition (petition_type, topic, detail, titlename, firstname, lastname, idcard, phonenumber, email, homenumber, alley, moo, road, province, district, sub_district, postcode, filedata, savedate, status) 
 		VALUES (	$petition_type,
@@ -109,15 +110,29 @@ class Homemodel extends CI_Model
 			'$province',
 			'$district',
 			'$sub_district',
-			'$postcode', 'ข้อมูลไฟล์', now(), '1');";
+			'$postcode', '$images', now(), '1');";
 		return $this->db->query($query);
 	}
 
 	public function search($idnumber, $phonenumber)
 	{
-		$query = "SELECT *
-		FROM petition
-		WHERE RIGHT(idcard, 4) = '$idnumber' AND RIGHT(phonenumber, 4) = '$phonenumber';";
+		$query = "SELECT ROW_NUMBER() OVER(ORDER BY p.petition_id ) as row,p.petition_id,
+        CONCAT_WS(' ', tit.name, p.firstname, p.lastname) AS name,
+        mt.topic_name AS main_topic,
+        p.topic,p.detail,p.status
+        FROM petition AS p
+        INNER JOIN subtopics AS stp ON stp.id = p.petition_type
+        INNER JOIN main_topics AS mt ON mt.id = stp.main_topic_id
+        INNER JOIN titles AS tit ON tit.id = p.titlename 
+		WHERE RIGHT(p.idcard, 4) = '$idnumber' AND RIGHT(p.phonenumber, 4) = '$phonenumber'" ;
+		return $this->db->query($query)->result();
+	}
+
+	public function checkstatusmodel($id)
+	{
+		$query = "SELECT status
+        FROM petition 
+		WHERE petition_id = '$id'" ;
 		return $this->db->query($query)->result();
 	}
 

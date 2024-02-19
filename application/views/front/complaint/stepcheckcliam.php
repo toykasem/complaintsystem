@@ -1,71 +1,62 @@
-<!-- <div class="row">
-    <div class="col-md-3">
-        <div class="card" style="<?= $status === '1' || $status === '2' ||  $status === '3' ||  $status === '4' ? 'background-color:#1bc51b;text-align:center' : '' ?>">
-        <div class="card-body">
-            <span class="title">1. กำลังดำเนินการ </span>
-            <span class="icon-arrow-right"></span>
-        </div>
+<br />
+<hr style="border: 1.5px solid;color:black" />
+<?php if (count($datacheck) > 0) { ?>
+
+    <div class="table-responsive">
+        <table  class="table table-striped" style="border: 1px; border-style: solid; border-color: black; background:white">
+            <thead>
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>ชื่อ</th>
+                    <th>หัวข้อร้องเรียน</th>
+                    <th>เรื่องที่ร้องเรียน</th>
+                    <th>รายละเอียด</th>
+                    <th>ดูสถานะ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($datacheck as $row) { ?>
+                    <tr>
+                        <td><?php echo $row->row ?></td>
+                        <td><?php echo $row->name ?></td>
+                        <td><?php echo $row->main_topic ?></td>
+                        <td><?php echo $row->topic ?></td>
+                        <td><?php echo $row->detail ?></td>
+                        <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="status(id = '<?php echo $row->petition_id ?>')">ดูสถานะ</button>
+
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+<?php } else { ?>
+    <div style="text-align:center">
+        <h3>-- ไม่พบข้อมูล --</h3>
+    </div>
+<?php } ?>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+        <div id="newsdetail">
         </div>
     </div>
-    <div class="col-md-3">
-        
-        <div class="card" style=" <?= $status === '2' ||  $status === '3' ||  $status === '4' ? 'background-color:#1bc51b;text-align:center' : '' ?>">
-        <div class="card-body">
-            <span class="title">2. อยู่ในสถานะตรวจสอบ</span>
-            <span class="icon-arrow-right"></span>
-        </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card" style=" <?= $status === '3' ||  $status === '4'  ? 'background-color:#1bc51b;text-align:center' : '' ?>">
-        <div class="card-body">
-            <span class="title">3. ขั้นตอนอนุมัติ</span>
-            <span class="icon-arrow-right"></span>
-        </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card" style=" <?= $status === '4'  ? 'background-color:#1bc51b;text-align:center' : '' ?>">
-        <div class="card-body">
-            <span class="title">4. เสร็จสิ้น</span>
-            <span class="icon-arrow-right"></span>
-        </div>
-        </div>
-    </div>
-</div> -->
-<br/>
-<hr/>
-        <div class="row">
-            <div  align="center">
-                <div class="step-circle" style="<?= $status === '1' || $status === '2' ||  $status === '3' ||  $status === '4' ? 'background-color:#1bc51b;text-align:center' : '' ?>">
-                    <span class="icon-pen" style="font-size: 30px; font-weight: 300;"></span>
-                    
-                </div>
-                <strong class="d-flex justify-content-between " style="flex-direction: column;">ยังไม่ได้ตรวจสอบ</strong>
-                <span class="icon-arrow-down" style="font-size: 30px; font-weight: 300;"></span>
-        
-            </div>
-            <div  align="center">
-                <div class="step-circle" style=" <?= $status === '2' ||  $status === '3' ||  $status === '4' ? 'background-color:#1bc51b;text-align:center' : '' ?>">
-                    <span class="icon-address-book" style="font-size: 30px; font-weight: 300;">
-                </div>
-                <strong class="d-flex justify-content-between " style="flex-direction: column;">อยู่ระหว่างดำเนินการ</strong>
-                <span class="icon-arrow-down" style="font-size: 30px; font-weight: 300;"></span>
-            </div>
-            <div  align="center">
-                <div class="step-circle" style=" <?= $status === '3' ||  $status === '4'  ? 'background-color:#1bc51b;text-align:center' : '' ?>">
-                    <span class="icon-folder-open" style="font-size: 30px; font-weight: 300;">
-                </div>
-                <strong class="d-flex justify-content-between " style="flex-direction: column;">รอตรวจสอบ</strong>
-                <span class="icon-arrow-down" style="font-size: 30px; font-weight: 300;"></span>
-            </div>
-            <div  align="center">
-                <div class="step-circle" style=" <?= $status === '4'  ? 'background-color:#1bc51b;text-align:center' : '' ?>">
-                    <span class="icon-checkmark" style="font-size: 30px; font-weight: 300;">
-                </div>
-                <strong class="d-flex justify-content-between " style="flex-direction: column;">อนุมัคิสำเร็จ</strong>
-            </div>
-        </div>
+</div>
+
+<script>
+    function status(id) {
+        var datas = "id=" + id;
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('Home/checkstatus') ?>",
+            data: datas,
+        }).done(function(data) {
+            $('#newsdetail').html(data);
+        });
+    }
+</script>
+
 <style>
     .step-container {
         position: relative;
@@ -89,5 +80,11 @@
         margin-bottom: 10px;
         cursor: pointer;
         /* Added cursor pointer */
+    }
+    .table th,
+    .table td {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 </style>

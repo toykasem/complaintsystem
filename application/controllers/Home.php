@@ -154,26 +154,67 @@ class Home extends CI_Controller
 		$sub_district = $this->input->post('sub_district');
 		$postcode = $this->input->post('postcode');
 
-		$insert = $this->model->insertpetition(
-			$petition_type,
-			$topic,
-			$detail,
-			$titlename,
-			$fristname,
-			$lasttname,
-			$idcard,
-			$phonenumber,
-			$email,
-			$homenumber,
-			$alley,
-			$moo,
-			$road,
-			$province,
-			$district,
-			$sub_district,
-			$postcode
-		);
+		if (isset($_FILES['images']["name"])) {
+			$dateSv = date('ymd');
+			$type = strrchr($_FILES['images']['name'], ".");
+			$newnamefile = rand(0, 999999);
+			$images =  $dateSv . $newnamefile . $type;
+			$_FILES['file']['name'] = $images;
+			$_FILES['file']['type'] = $_FILES['images']['type'];
+			$_FILES['file']['tmp_name'] = $_FILES['images']['tmp_name'];
+			$_FILES['file']['error'] = $_FILES['images']['error'];
+			$_FILES['file']['size'] = $_FILES['images']['size'];
+			$config['upload_path']          = './imageupload';
+			$config['allowed_types']         = 'pdf|Pdf|jpg|jpeg|png';
+			$config['remove_spaces'] = 'FALSE';
 
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+			if ($this->upload->do_upload('file')) {
+				$this->upload->data();
+				$insert = $this->model->insertpetition(
+					$petition_type,
+					$topic,
+					$detail,
+					$titlename,
+					$fristname,
+					$lasttname,
+					$idcard,
+					$phonenumber,
+					$email,
+					$homenumber,
+					$alley,
+					$moo,
+					$road,
+					$province,
+					$district,
+					$sub_district,
+					$postcode,
+					$images
+				);
+			}
+		}
+
+		// $insert = $this->model->insertpetition(
+		// 	$petition_type,
+		// 	$topic,
+		// 	$detail,
+		// 	$titlename,
+		// 	$fristname,
+		// 	$lasttname,
+		// 	$idcard,
+		// 	$phonenumber,
+		// 	$email,
+		// 	$homenumber,
+		// 	$alley,
+		// 	$moo,
+		// 	$road,
+		// 	$province,
+		// 	$district,
+		// 	$sub_district,
+		// 	$postcode
+		// );
 		if ($insert) {
 			$data = array('success' => true, 'msg1' => 'Form has been submitted successfully2');
 		} else {
@@ -186,11 +227,18 @@ class Home extends CI_Controller
 	{
 		$idnumber = $this->input->post('idnumber');
 		$phonenumber = $this->input->post('phonenumber');
-		$data['province'] = $this->model->search($idnumber,$phonenumber);
-		foreach ($data['province'] as $r) {
-			$data['status']  = $r->status;
-		}
+		$data['datacheck'] = $this->model->search($idnumber, $phonenumber);
+		// foreach ($data['datacheck'] as $r) {
+		// 	$data['status']  = $r->status;
+		// }
 
-		$this->load->view('front/complaint/stepcheckcliam',$data);
+		$this->load->view('front/complaint/stepcheckcliam', $data);
+	}
+	public function checkstatus()
+	{
+		$id = $this->input->post('id');
+		$data['statuscheck'] = $this->model->checkstatusmodel($id);
+
+		$this->load->view('front/complaint/modalstatus', $data);
 	}
 }

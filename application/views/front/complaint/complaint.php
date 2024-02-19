@@ -187,10 +187,13 @@
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-10">
+                                    <div style="display: flex;flex-direction: row; margin-top: 20px; align-items: center; justify-content: center;">
+                                    <span style="color:red;text-align:center">***********กรุณารวมเป็นไฟล์ เดียวก่อน อัพโหลด***********</span>
+                                    </div>
                                         <label for="images" class="drop-container" id="dropcontainer">
                                             <span class="drop-title">แนบไฟล์</span>
                                             or
-                                            <input type="file" name="images" id="images" accept="image/*">
+                                            <input type="file" name="images" id="images" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
                                         </label>
                                     </div>
 

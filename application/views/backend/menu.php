@@ -16,19 +16,20 @@
             </a>
             <div class="parent-wrapper label-1">
               <ul class="nav collapse parent show" data-bs-parent="#navbarVerticalCollapse" id="nv-home">
+              <li class="nav-item"><a class="nav-link active" href="<?php echo site_url('datacompaim'); ?>" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">ข้อมูลร้องเรียน</span><span class="badge ms-2 badge badge-complian badge-complian-info ">New</span></div>
+                  </a>
+                </li>
                 <li class="collapsed-nav-item-title d-none">Home</li>
-                <li class="nav-item"><a class="nav-link active" href="#" data-bs-toggle="" aria-expanded="false">
-                    <div class="d-flex align-items-center"><span class="nav-link-text">E commerce</span></div>
+                <li class="nav-item"><a class="nav-link " href="<?php echo site_url('Admin'); ?>" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">Home</span></div>
                   </a>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center"><span class="nav-link-text">Project management</span></div>
                   </a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="" aria-expanded="false">
-                    <div class="d-flex align-items-center"><span class="nav-link-text">CRM</span><span class="badge ms-2 badge badge-complian badge-complian-info ">New</span></div>
-                  </a>
-                </li>
+              
                 <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center"><span class="nav-link-text">Social feed</span></div>
                   </a>
@@ -122,7 +123,7 @@
   <div class="collapse navbar-collapse justify-content-between">
     <div class="navbar-logo">
       <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
-      <a class="navbar-brand me-1 me-sm-3" href="#">
+      <a class="navbar-brand me-1 me-sm-3" href="<?php echo site_url('Admin'); ?>">
         <div class="d-flex align-items-center">
           <div class="d-flex align-items-center"><img src="<?php echo base_url(); ?>assets/cssbackend/themecss/assets/img/icons/logo.png" alt="template" width="27" />
             <p class="logo-text ms-2 d-none d-sm-block">template</p>
@@ -262,8 +263,8 @@
                 <li class="nav-item"><a class="nav-link px-3" href="#!"> <span class="me-2 text-body" data-feather="user-plus"></span>Add another account</a></li>
               </ul>
               <hr />
-              <div class="px-3"> <a class="btn btn-complian-secondary d-flex flex-center w-100" href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign out</a></div>
-              <div class="my-2 text-center fw-bold fs-10 text-body-quaternary"><a class="text-body-quaternary me-1" href="#!">Privacy policy</a>&bull;<a class="text-body-quaternary mx-1" href="#!">Terms</a>&bull;<a class="text-body-quaternary ms-1" href="#!">Cookies</a></div>
+              <div class="px-3"> <a class="btn btn-complian-secondary d-flex flex-center w-100" href="<?php echo site_url('Login/Logout'); ?>"> <span class="me-2" data-feather="log-out"> </span>Sign out</a></div>
+              <br />
             </div>
           </div>
         </div>

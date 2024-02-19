@@ -19,7 +19,7 @@
             <div class="row" style="text-align: center;">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <button class="btn btn-primary btn-next" style="text-align: center;" data-last="Finish" onclick="searchclaim()">
+                    <button class="btn btn-primary btn-next" style="text-align: center;" onclick="searchclaim()">
                         <i class="ace-icon fa fa-search"></i> ค้นหา
                     </button>
                 </div>
@@ -31,9 +31,21 @@
     </div>
 </section>
 <script type="text/javascript">
-    function searchclaim(id) {
+    function searchclaim() {
         var idnumber = document.getElementById('idnumber').value;
         var phonenumber = document.getElementById('phonenumber').value;
+
+        // Simple validation
+        if (idnumber.length !== 4 || phonenumber.length !== 4) {
+            // Show SweetAlert error message
+
+            swal("กรุณากรอกข้อมูลให้ครบ",
+                "กรุณากรอกข้อมูลให้ครบ เพื่อทำการค้นหา",
+                "error");
+            return;
+        }
+
+        // Proceed with AJAX request
         var datas = "idnumber=" + idnumber + "&phonenumber=" + phonenumber;
         $.ajax({
             type: "POST",
@@ -43,24 +55,4 @@
             $('#stepshowe').html(data);
         });
     }
-
-
-
-    function loadcss(url, last) {
-        var head = document.getElementsByTagName('head')[0],
-            link = document.createElement('link');
-        link.type = 'text/css';
-        link.rel = 'stylesheet';
-        link.href = url;
-        if (last == "first") {
-            link.onload = callbackFunc;
-        }
-        head.appendChild(link);
-        return link;
-    }
-    var callbackFunc = function() {
-        document.getElementsByTagName('body')[0].style.opacity = '1';
-    };
-    loadcss('<?php echo base_url(); ?>assets/friststylestep.css', 'last');
-    loadcss('<?php echo base_url(); ?>assets/laststylestep.css', 'first');
 </script>
